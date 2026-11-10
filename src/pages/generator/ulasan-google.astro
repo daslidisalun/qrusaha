@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Toko.astro';
+import PanelQR from '../../components/PanelQR.astro';
+import Editorial from '../../konten/ed-ulasan.astro';
+---
+
+<Layout
+  title="Generator QR Ulasan Google — QRUsaha"
+  description="Buat QR yang membuka halaman ulasan Google usaha Anda. Panduan resmi mendapatkan tautan ulasan dari Google Maps dan Profil Bisnis."
+>
+  <div class="bungkus">
+    <div class="pembuka">
+      <span class="label-seksi">Generator QR</span>
+      <h1>QR Ulasan Google</h1>
+      <p style="max-width:720px">Calon pelanggan hampir selalu membaca ulasan sebelum mencoba tempat baru. Masalahnya, pelanggan yang puas jarang menulis ulasan atas inisiatif sendiri — bukan karena tidak mau, tetapi karena langkahnya terasa jauh. QR ini memangkas langkah itu: tempel tautan ulasan resmi usaha Anda, dan pelanggan tinggal memindai, memberi bintang, menulis satu-dua kalimat, selesai.</p>
+    </div>
+
+    <div class="panel-qr" data-panel>
+      <form class="kartu-form" autocomplete="off">
+        <div class="kolom">
+          <label for="ulasan-url">Tautan ulasan Google usaha Anda</label>
+          <input type="url" id="ulasan-url" data-bidang="url" placeholder="cth: https://g.page/r/CXxxxxxxxx/review" />
+          <p class="petunjuk">Tempel tautan resmi dari Google (biasanya berbentuk g.page/r/…/review). Cara mendapatkannya dijelaskan langkah demi langkah di bawah formulir ini — jangan memakai tautan hasil pencarian Google biasa, karena itu bukan tautan ulasan langsung.</p>
+        </div>
+        <div class="kolom">
+          <label>Kalimat ajakan (untuk stiker Anda)</label>
+          <div class="struk" style="margin-top:0"><div class="struk-judul">— CONTOH AJAKAN —</div><span data-peran-tampilan="ajakan">Puas dengan layanan kami? Bantu usaha kecil ini berkembang dengan ulasan bintang lima di Google. Pindai QR di bawah — cukup semenit. Terima kasih! 🙏</span></div>
+          <p class="petunjuk">Salin dan sesuaikan kalimat ini pada desain stiker Anda. Meminta dengan sopan itu boleh; membeli ulasan tidak — baca bagian etika di bawah.</p>
+        </div>
+      </form>
+      <PanelQR labelAwal="Beri Kami Ulasan ⭐" />
+    </div>
+
+    <div class="artikel">
+      <Editorial />
+    </div>
+  </div>
+
+  <script>
+    import { pasangPanel } from '../../lib/qr-ui.js';
+    import { muatanTautan } from '../../lib/qr.js';
+
+    const panel = document.querySelector('[data-panel]');
+    const url = panel.querySelector('[data-bidang="url"]');
+    pasangPanel(panel, {
+      buatMuatan: () => (url.value.trim() ? muatanTautan(url.value) : ''),
+      namaBerkas: 'qr-ulasan-google',
+    });
+  </script>
+</Layout>

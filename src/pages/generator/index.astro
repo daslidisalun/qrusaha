@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Toko.astro';
+import { u } from '../../lib/base.js';
+
+const alat = [
+  ['💬', '/generator/whatsapp/', 'QR WhatsApp', 'Untuk pesan antar, tanya stok, konsultasi, dan booking. Pesan pembuka terisi otomatis di chat pelanggan, sehingga mereka tidak perlu berpikir mau mengetik apa. Paling serbaguna untuk hampir semua jenis usaha.'],
+  ['📶', '/generator/wifi/', 'QR WiFi', 'Untuk kafe, warung kopi, salon, dan tempat tunggu. Pelanggan terhubung tanpa mengeja sandi; Anda tidak perlu menjawab pertanyaan yang sama puluhan kali sehari.'],
+  ['🔗', '/generator/tautan/', 'QR Tautan / Link', 'Untuk menu digital, katalog, Google Maps, Linktree, formulir, dan halaman web lain milik usaha Anda. Satu generator untuk semua alamat.'],
+  ['⭐', '/generator/ulasan-google/', 'QR Ulasan Google', 'Untuk meminta ulasan dengan cara resmi dan sopan. Memakai tautan ulasan dari Profil Bisnis Google Anda sendiri, ditempel di kasir atau meja.'],
+  ['💳', '/generator/info-bayar/', 'QR Info Pembayaran', 'Teks info bank/e-wallet yang bisa disalin pelanggan untuk transfer manual. Bukan QRIS — dan kami menyebutnya dengan jujur sejak awal.'],
+  ['📇', '/generator/kartu-nama/', 'QR Kartu Nama Digital', 'Kontak usaha tersimpan rapi di HP pelanggan: nama, telepon, WhatsApp, alamat, jam buka, situs. Pengganti kartu nama kertas yang tidak mudah hilang.'],
+  ['✏️', '/generator/teks/', 'QR Teks Bebas', 'Untuk pengumuman, tata tertib, petunjuk, dan label. Teks tertanam langsung di QR dan terbaca tanpa internet.'],
+  ['🖨️', '/stiker/', 'Lembar Stiker Siap Cetak', 'Bukan generator, melainkan meja cetak: susun QR apa pun menjadi 4, 6, atau 12 stiker per lembar A4 lengkap dengan label nama usaha dan garis potong.'],
+];
+---
+
+<Layout
+  title="Semua Generator QR — QRUsaha"
+  description="Daftar lengkap generator QR gratis QRUsaha untuk UMKM: WhatsApp, WiFi, tautan, ulasan Google, info pembayaran, kartu nama digital, teks, dan lembar stiker."
+>
+  <div class="bungkus">
+    <div class="pembuka artikel">
+      <span class="label-seksi">Generator QR</span>
+      <h1>Semua Generator QR</h1>
+      <p>QRUsaha menyediakan tujuh generator dan satu meja cetak stiker. Semuanya bekerja dengan cara yang sama: Anda mengisi formulir pendek, QR langsung tergambar di stiker pratinjau, lalu Anda mengunduhnya sebagai PNG atau SVG untuk dicetak. Tidak ada pendaftaran, tidak ada unggahan, dan tidak ada batas jumlah — buatlah sebanyak yang dibutuhkan usaha Anda.</p>
+      <p>Belum tahu harus mulai dari mana? Untuk sebagian besar usaha, urutan yang paling terasa manfaatnya adalah: <strong>QR WhatsApp</strong> dulu (mengubah pemindai menjadi pembeli), lalu <strong>QR ulasan Google</strong> (mengubah pembeli puas menjadi bukti), dan <strong>QR WiFi atau menu</strong> bila pelanggan Anda menunggu di tempat. Tiga sisanya menyusul sesuai kebutuhan kasir dan operasional Anda.</p>
+      <p>Setiap halaman generator dilengkapi panduan lengkap di bawah alatnya: cara memakai langkah demi langkah, contoh nyata untuk jenis usaha seperti milik Anda, tips mencetak dan memasang, serta kesalahan umum yang sebaiknya dihindari. Luangkan dua menit membacanya sebelum mencetak banyak — QR yang sudah tercetak tidak bisa diubah isinya, sedangkan membacanya gratis.</p>
+      <p>Satu hal yang membedakan semua alat di sini dari generator QR kebanyakan: tidak ada satu pun yang memakai "QR dinamis" yang bergantung pada server perantara. Banyak layanan gratis di internet sebenarnya menanamkan alamat server mereka sendiri di dalam QR Anda — QR berfungsi selama layanan itu hidup dan selama Anda tidak diminta membayar untuk meneruskannya. QR dari QRUsaha berisi langsung tujuan akhirnya (nomor WhatsApp Anda, jaringan WiFi Anda, tautan milik Anda), sehingga tidak ada pihak ketiga yang bisa memutus, mengubah, atau mengintip ke mana pelanggan Anda diarahkan. Konsekuensinya jujur kami sampaikan juga: bila nomor atau tautan Anda berubah, QR lama harus dicetak ulang — tidak ada pintu belakang untuk mengubahnya dari jauh.</p>
+    </div>
+
+    <ul class="etalase">
+      {alat.map(([ikon, href, nama, desk]) => (
+        <li>
+          <span class="ikon" aria-hidden="true">{ikon}</span>
+          <h3>{nama}</h3>
+          <p>{desk}</p>
+          <a href={u(href)}>Buka alat →</a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="artikel">
+      <h2>Apa bedanya QR di sini dengan QRIS?</h2>
+      <p>Pertanyaan ini wajar dan penting. QR yang dibuat generator di halaman ini berisi <em>informasi</em>: tautan WhatsApp, kata sandi WiFi, alamat web, teks, atau kartu nama. QRIS berisi <em>instruksi pembayaran resmi</em> yang diterbitkan bank atau e-wallet Anda di bawah standar Bank Indonesia — uang masuk langsung ke rekening usaha. Karena menyangkut uang dan izin, QRIS tidak bisa (dan tidak boleh) dibuat oleh situs generator seperti ini. Bila usaha Anda belum punya QRIS, daftarlah lewat aplikasi bank atau e-wallet resmi; sambil menunggu, QR info pembayaran kami bisa menjadi pendamping yang jujur. Bedanya kami uraikan tuntas di artikel <a href={u('/blog/qris-vs-qr-biasa-apa-bedanya/')}>QRIS vs QR biasa</a>.</p>
+      <h2>Berapa biaya memakai semua ini?</h2>
+      <p>Nol rupiah. Generator berjalan di browser Anda, jadi biaya kami untuk melayani Anda praktis tidak ada — dan karena itu kami tidak perlu menagih Anda, menjual data Anda (yang memang tidak pernah kami terima), atau membatasi jumlah QR. Cetaklah dengan bijak, uji pindai selalu, dan semoga usaha Anda makin ramai.</p>
+    </div>
+  </div>
+</Layout>

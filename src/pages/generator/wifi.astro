@@ -1,0 +1,76 @@
+---
+import Layout from '../../layouts/Toko.astro';
+import PanelQR from '../../components/PanelQR.astro';
+import Editorial from '../../konten/ed-wifi.astro';
+---
+
+<Layout
+  title="Generator QR WiFi — QRUsaha"
+  description="Buat QR WiFi gratis: pelanggan memindai sekali dan langsung terhubung, tanpa mengeja kata sandi. Dibuat 100% di browser Anda."
+>
+  <div class="bungkus">
+    <div class="pembuka">
+      <span class="label-seksi">Generator QR</span>
+      <h1>QR WiFi</h1>
+      <p style="max-width:720px">"Sandi WiFi-nya apa, Mbak?" — pertanyaan yang terdengar sepele tetapi terulang puluhan kali sehari dan memotong pekerjaan kasir. Dengan QR WiFi, pelanggan cukup mengarahkan kamera: HP Android dan iPhone modern akan menawarkan koneksi langsung. Nama jaringan dan kata sandi tertanam di dalam QR, jadi perlakukan stikernya seperti Anda memperlakukan kata sandi itu sendiri.</p>
+      <div class="kotak-waspada"><p><strong>Catatan privasi:</strong> kata sandi yang Anda ketik di bawah hanya diproses di browser Anda untuk menggambar QR. Ia tidak dikirim ke server mana pun — sama seperti semua alat di QRUsaha.</p></div>
+    </div>
+
+    <div class="panel-qr" data-panel>
+      <form class="kartu-form" autocomplete="off">
+        <div class="kolom">
+          <label for="wifi-ssid">Nama jaringan (SSID)</label>
+          <input type="text" id="wifi-ssid" data-bidang="ssid" placeholder="cth: WarungKopiMbokSari_Tamu" value="WarungKopiMbokSari_Tamu" />
+          <p class="petunjuk">Harus sama persis dengan nama WiFi yang muncul di HP, termasuk huruf besar/kecil dan spasi.</p>
+        </div>
+        <div class="kolom">
+          <label for="wifi-sandi">Kata sandi WiFi</label>
+          <input type="text" id="wifi-sandi" data-bidang="sandi" placeholder="cth: kopisusu2026" value="kopisusu2026" />
+        </div>
+        <div class="baris-dua">
+          <div class="kolom">
+            <label for="wifi-enkripsi">Jenis keamanan</label>
+            <select id="wifi-enkripsi" data-bidang="enkripsi">
+              <option value="WPA" selected>WPA / WPA2 / WPA3 (umum)</option>
+              <option value="WEP">WEP (lama, kurang aman)</option>
+              <option value="nopass">Tanpa kata sandi</option>
+            </select>
+          </div>
+          <div class="kolom">
+            <label for="wifi-tersembunyi">SSID tersembunyi?</label>
+            <select id="wifi-tersembunyi" data-bidang="tersembunyi">
+              <option value="tidak" selected>Tidak, jaringan terlihat</option>
+              <option value="ya">Ya, SSID disembunyikan</option>
+            </select>
+          </div>
+        </div>
+        <p class="kecil" style="margin:0">Pilih "Tanpa kata sandi" hanya bila jaringan Anda memang terbuka; kolom sandi akan diabaikan.</p>
+      </form>
+      <PanelQR labelAwal="WiFi Gratis — Pindai untuk Terhubung" />
+    </div>
+
+    <div class="artikel">
+      <Editorial />
+    </div>
+  </div>
+
+  <script>
+    import { pasangPanel } from '../../lib/qr-ui.js';
+    import { muatanWiFi } from '../../lib/qr.js';
+
+    const panel = document.querySelector('[data-panel]');
+    const ambil = (nama) => panel.querySelector(`[data-bidang="${nama}"]`);
+    pasangPanel(panel, {
+      buatMuatan: () =>
+        ambil('ssid').value.trim()
+          ? muatanWiFi({
+              ssid: ambil('ssid').value,
+              sandi: ambil('sandi').value,
+              enkripsi: ambil('enkripsi').value,
+              tersembunyi: ambil('tersembunyi').value === 'ya',
+            })
+          : '',
+      namaBerkas: 'qr-wifi',
+    });
+  </script>
+</Layout>

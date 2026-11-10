@@ -1,0 +1,61 @@
+---
+import Layout from '../../layouts/Toko.astro';
+import PanelQR from '../../components/PanelQR.astro';
+import Editorial from '../../konten/ed-tautan.astro';
+---
+
+<Layout
+  title="Generator QR Tautan / Link — QRUsaha"
+  description="Ubah tautan apa pun menjadi QR gratis: menu digital, katalog, Google Maps, Linktree. Domain polos otomatis ditambah https://."
+>
+  <div class="bungkus">
+    <div class="pembuka">
+      <span class="label-seksi">Generator QR</span>
+      <h1>QR Tautan / Link</h1>
+      <p style="max-width:720px">Generator serbaguna untuk alamat web apa pun milik usaha Anda: menu digital, katalog produk, titik Google Maps, halaman Linktree, formulir pemesanan, sampai album testimoni. Pelanggan memindai dan halaman langsung terbuka di browser mereka — jauh lebih cepat dan bebas salah ketik dibanding membaca alamat dari stiker.</p>
+    </div>
+
+    <div class="panel-qr" data-panel>
+      <form class="kartu-form" autocomplete="off">
+        <div class="kolom">
+          <label for="tautan-url">Alamat tautan</label>
+          <input type="url" id="tautan-url" data-bidang="url" placeholder="cth: menu.warungkopi.id" value="menu.warungkopi.id" />
+          <p class="petunjuk">Boleh ditulis tanpa https:// — bila Anda mengetik domain polos, kami menambahkannya otomatis. Buka dulu tautannya di HP Anda untuk memastikan halamannya benar sebelum mencetak QR.</p>
+        </div>
+        <div class="kolom">
+          <label>Contoh cepat</label>
+          <div class="grup-tombol-template">
+            <button type="button" class="tombol polos kecil" data-contoh="https://maps.google.com/?q=Warung+Kopi+Mbok+Sari">📍 Google Maps</button>
+            <button type="button" class="tombol polos kecil" data-contoh="https://linktr.ee/namausaha">🌳 Linktree</button>
+            <button type="button" class="tombol polos kecil" data-contoh="https://drive.google.com/file/">📄 Berkas Drive</button>
+          </div>
+          <p class="petunjuk">Contoh hanya pola — ganti dengan alamat asli usaha Anda.</p>
+        </div>
+      </form>
+      <PanelQR labelAwal="Lihat Menu & Katalog Kami" />
+    </div>
+
+    <div class="artikel">
+      <Editorial />
+    </div>
+  </div>
+
+  <script>
+    import { pasangPanel } from '../../lib/qr-ui.js';
+    import { muatanTautan } from '../../lib/qr.js';
+
+    const panel = document.querySelector('[data-panel]');
+    const url = panel.querySelector('[data-bidang="url"]');
+    panel.querySelectorAll('[data-contoh]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        url.value = btn.dataset.contoh;
+        url.dispatchEvent(new Event('input', { bubbles: true }));
+        url.focus();
+      });
+    });
+    pasangPanel(panel, {
+      buatMuatan: () => (url.value.trim() ? muatanTautan(url.value) : ''),
+      namaBerkas: 'qr-tautan',
+    });
+  </script>
+</Layout>

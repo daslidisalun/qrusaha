@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Toko.astro';
+import { u } from '../lib/base.js';
+---
+<Layout title="Tentang QRUsaha — QRUsaha" description="Tentang QRUsaha: generator QR gratis untuk usaha kecil Indonesia. Semua diproses di browser Anda, tanpa daftar, tanpa unggah data, tanpa pelacakan isi QR.">
+  <div class="bungkus">
+    <div class="pembuka artikel">
+      <span class="label-seksi">QRUsaha</span>
+      <h1>Tentang QRUsaha</h1>
+      <p>QRUsaha adalah situs generator kode QR yang dibuat khusus untuk usaha kecil di Indonesia: warung makan, warung kopi, kafe kecil, laundry, salon, barbershop, bengkel, toko kelontong, pedagang kaki lima, sampai penjual online yang melayani pelanggan lewat chat. Di sini Anda bisa membuat QR untuk WhatsApp, WiFi, tautan, ulasan Google, info pembayaran, kartu nama digital, dan teks bebas — lalu mengunduhnya sebagai gambar PNG atau SVG, atau menyusunnya menjadi lembar stiker yang siap dicetak. Semuanya gratis, tanpa membuat akun, dan tanpa perlu memasang aplikasi tambahan.</p>
+      <p>Halaman ini menjelaskan dengan jujur kenapa situs ini ada, kenapa bisa gratis, kenapa semua prosesnya berjalan di browser Anda, dan nilai apa yang kami pegang. Kami sengaja menulisnya panjang dan terbuka, karena kepercayaan adalah modal utama situs seperti ini. Anda mempercayakan hal-hal yang cukup sensitif untuk diubah menjadi QR — nomor WhatsApp usaha, kata sandi WiFi, sampai nomor rekening untuk pembayaran. Anda berhak tahu persis apa yang terjadi pada data itu.</p>
+
+      <h2>Misi kami: membantu usaha kecil naik kelas, tanpa ribet</h2>
+      <p>Misi QRUsaha sederhana: membantu usaha kecil memanfaatkan teknologi QR dengan cara yang paling mudah, paling murah, dan paling aman. Banyak pemilik usaha sebenarnya sudah tahu manfaat QR. Pelanggan bisa langsung chat WhatsApp tanpa mengetik nomor. Tamu kafe bisa terhubung ke WiFi tanpa mengeja kata sandi yang panjang. Pembeli bisa menyalin nomor rekening dengan tepat tanpa salah satu angka pun. Pelanggan yang puas bisa diarahkan menulis ulasan Google, yang pelan-pelan menaikkan kepercayaan calon pelanggan baru.</p>
+      <p>Masalahnya, di lapangan hal-hal sederhana itu sering terasa jauh. Banyak layanan generator QR di internet yang tampilannya rumit, penuh tombol yang membingungkan, mengharuskan pendaftaran dengan email, atau ternyata berbayar setelah QR dibuat — QR hanya bisa diunduh dalam ukuran besar setelah berlangganan, atau QR berhenti bekerja setelah masa percobaan habis. Bagi usaha besar itu mungkin bukan masalah. Bagi warung atau laundry yang dikelola satu-dua orang, setiap kerumitan kecil adalah alasan untuk menunda, dan akhirnya tidak jadi memakai QR sama sekali.</p>
+      <p>QRUsaha mencoba menghilangkan semua hambatan itu. Buka halaman alatnya, isi formulir pendeknya, lihat pratinjau QR secara langsung, lalu unduh dan cetak. Tidak ada langkah yang disembunyikan, tidak ada kejutan di akhir proses. Kalau sebuah QR bisa dibuat dalam waktu kurang dari satu menit oleh orang yang baru pertama kali mencobanya, berarti kami sudah cukup berhasil.</p>
+
+      <h2>Kenapa bisa gratis?</h2>
+      <p>Pertanyaan ini wajar dan penting: kalau gratis, situs ini hidup dari apa? Jawabannya berkaitan langsung dengan cara kerja teknisnya. Pada layanan berbasis server, setiap QR yang dibuat harus dikirim ke server, diproses di sana, disimpan, lalu dikirim kembali ke pengguna. Semakin banyak pengguna, semakin besar biaya server, penyimpanan, dan lalu lintas datanya. Biaya itulah yang biasanya ditutup dengan langganan berbayar, batasan fitur, atau pengumpulan data pengguna.</p>
+      <p>QRUsaha bekerja dengan cara yang berbeda. Semua perhitungan untuk membentuk QR dilakukan langsung di browser Anda, memakai kemampuan perangkat yang sedang Anda pegang — ponsel atau komputer Anda sendiri. Situs ini pada dasarnya hanya mengirimkan berkas halaman, tampilan, dan kode program sekali saat Anda membuka halaman. Setelah itu, pembuatan QR, pratinjau, penempelan logo, sampai pembuatan berkas PNG, SVG, dan lembar stiker, semuanya terjadi di perangkat Anda. Karena tidak ada proses berat yang berjalan di server untuk setiap QR, biaya operasional server kami nyaris nol: yang kami bayar hanyalah biaya dasar untuk menyajikan situs statis, yang sangat kecil.</p>
+      <div class="kotak-info"><p>Ringkasnya: QRUsaha bisa gratis bukan karena ada pihak yang diam-diam membayar dengan data Anda, melainkan karena memang hampir tidak ada biaya untuk menagih Anda. Pekerjaan beratnya dikerjakan oleh browser Anda sendiri.</p></div>
+      <p>Soal keberlanjutan, kami memilih jujur sejak awal. Saat ini QRUsaha adalah situs demo yang dikelola kecil-kecilan, dan dalam bentuknya sekarang situs ini tidak menghasilkan uang. Ke depan, bila pengunjungnya bertambah dan ada biaya yang perlu ditutup — misalnya biaya domain dan penyajian situs — rencananya adalah memasang iklan yang tidak mengganggu: iklan yang jelas terlihat sebagai iklan, tidak menutupi alat, tidak mengecoh tombol unduh, dan tidak mengubah sifat alatnya yang gratis. Kami tidak berencana mengunci fitur dasar di balik pembayaran, dan kami tidak akan menjual data pengguna — apalagi, seperti dijelaskan di bawah, kami memang tidak menerima data isi QR Anda sama sekali, jadi tidak ada yang bisa dijual. Jika suatu hari rencana keberlanjutan ini berubah secara berarti, halaman ini dan <a href={u('/privasi/')}>Kebijakan Privasi</a> akan diperbarui lebih dulu.</p>
+
+      <h2>Kenapa semua diproses di browser? Karena privasi adalah soal teknis, bukan sekadar janji</h2>
+      <p>Banyak situs menulis kalimat manis seperti "privasi Anda adalah prioritas kami", tetapi secara teknis tetap mengunggah semua yang Anda ketik ke server mereka. Janji seperti itu hanya sekuat kepercayaan Anda kepada pengelolanya, dan bisa berubah kapan saja tanpa Anda sadari.</p>
+      <p>QRUsaha mengambil jalan yang berbeda: perlindungan privasinya dibangun dari cara kerjanya, bukan dari janji. Nomor WhatsApp yang Anda masukkan, nama jaringan dan kata sandi WiFi Anda, nomor rekening dan nama bank yang Anda tulis, isi kartu nama digital Anda — semuanya hanya diolah di dalam browser pada perangkat Anda untuk menggambar QR di layar. Data itu tidak dikirim ke server kami, tidak diunggah, dan tidak disimpan di mana pun selain di perangkat Anda sendiri. Secara teknis, server kami bahkan tidak memiliki fungsi untuk menerima isi QR, karena situs ini adalah situs statis tanpa basis data pengguna.</p>
+      <p>Konsekuensi praktisnya terasa: kami tidak bisa melihat QR apa saja yang dibuat pengunjung, kami tidak bisa membuat daftar nomor WhatsApp dari pengguna kami, dan kami tidak tahu kata sandi WiFi siapa pun. Kalau suatu hari ada pihak yang meminta data tersebut kepada kami, jawabannya tetap sama: data itu tidak pernah sampai ke kami. Penjelasan yang lebih rinci dan teknis bisa Anda baca di <a href={u('/privasi/')}>Kebijakan Privasi</a>.</p>
+      <p>Ada manfaat tambahan dari cara kerja ini. Karena prosesnya lokal, generator tetap terasa cepat dan ringan, tidak bergantung pada antrean server, dan hasil unduhan dibuat langsung di perangkat Anda dalam kualitas yang siap cetak.</p>
+
+      <h2>Cara kerja singkat</h2>
+      <p>Bagi Anda yang penasaran, alur pemakaian QRUsaha hanya terdiri dari beberapa langkah:</p>
+      <ul class="daftar-cek">
+        <li>Pilih jenis QR yang dibutuhkan dari halaman <a href={u('/generator/')}>Generator QR</a> — misalnya QR WhatsApp, QR WiFi, atau QR Info Pembayaran.</li>
+        <li>Isi formulirnya: nomor tujuan, nama jaringan, tautan, atau informasi lain sesuai jenis QR yang dipilih.</li>
+        <li>Lihat pratinjau QR yang terbentuk secara langsung sambil Anda mengetik, dan periksa kembali isinya dengan saksama.</li>
+        <li>Atur warna dan, bila perlu, tempelkan logo usaha Anda di tengah QR — logo itu pun hanya dibaca di browser Anda.</li>
+        <li>Unduh hasilnya sebagai PNG atau SVG, atau susun beberapa QR sekaligus di halaman <a href={u('/stiker/')}>Lembar Stiker</a> untuk dicetak.</li>
+        <li>Uji pindai dengan ponsel Anda sendiri sebelum stiker dipasang atau dibagikan ke pelanggan.</li>
+      </ul>
+      <p>Itu saja. Tidak ada langkah pendaftaran, tidak ada halaman pembayaran, dan tidak ada masa berlaku yang diam-diam mengintai QR yang sudah Anda cetak. QR statis yang dihasilkan dari isi yang Anda masukkan akan tetap berisi informasi yang sama selama stikernya masih bisa dipindai.</p>
+
+      <h2>Siapa yang cocok memakai QRUsaha?</h2>
+      <p>QRUsaha dirancang untuk pemilik dan pengelola usaha kecil serta siapa pun yang membutuhkan QR praktis tanpa kerumitan, antara lain:</p>
+      <ul>
+        <li><strong>Warung makan, kedai kopi, dan kafe</strong> — QR WiFi di meja, QR WhatsApp untuk pemesanan, dan QR ulasan Google di dekat kasir.</li>
+        <li><strong>Laundry, salon, barbershop, dan bengkel</strong> — QR WhatsApp agar pelanggan mudah bertanya harga, antrean, dan status pengerjaan.</li>
+        <li><strong>Toko, kios, dan pedagang pasar</strong> — QR info pembayaran berisi nomor rekening atau dompet digital yang bisa disalin pelanggan dengan tepat.</li>
+        <li><strong>Penjual online dan admin media sosial</strong> — QR tautan menuju katalog, toko di lokapasar, atau akun media sosial usaha.</li>
+        <li><strong>Kos, kontrakan, penginapan, dan ruang usaha bersama</strong> — QR WiFi untuk tamu tanpa harus membagikan kata sandi secara lisan berulang kali.</li>
+        <li><strong>Profesional perorangan</strong> — QR kartu nama digital yang memudahkan orang menyimpan kontak Anda.</li>
+      </ul>
+      <p>Kalau kebutuhan Anda adalah QR dinamis yang isinya bisa diubah-ubah dari dasbor, statistik pemindaian terperinci, atau pengelolaan kampanye berskala besar, layanan berbayar khusus mungkin lebih cocok untuk Anda. QRUsaha dengan sadar memilih fokus yang sempit: QR statis yang sederhana, cepat, dan aman untuk kebutuhan usaha sehari-hari.</p>
+
+      <h2>Nilai-nilai yang kami pegang</h2>
+      <ul class="daftar-cek">
+        <li><strong>Jujur soal QRIS.</strong> QRUsaha tidak menerbitkan QRIS dan tidak berafiliasi dengan Bank Indonesia, bank, atau penyedia dompet digital mana pun. QRIS resmi hanya diterbitkan melalui penyelenggara berizin. Karena itu alat pembayaran kami adalah QR Info Pembayaran — QR berisi teks nomor rekening atau nomor dompet digital yang disalin secara manual oleh pelanggan — dan kami menyebutnya apa adanya, bukan menamakannya QRIS agar terlihat resmi. Penjelasan batasannya ada di <a href={u('/disclaimer/')}>Disclaimer</a>.</li>
+        <li><strong>Tanpa pelacakan isi QR.</strong> Kami tidak memasang analitik yang merekam isi formulir, tidak memakai cookie pelacak, dan tidak membuat akun pengguna. Yang Anda ketik tetap milik Anda.</li>
+        <li><strong>Gratis yang benar-benar gratis.</strong> Fitur yang tampil di halaman adalah fitur yang bisa dipakai sampai selesai, termasuk unduhan siap cetak, tanpa tembok pembayaran di langkah terakhir.</li>
+        <li><strong>Bahasa yang bisa dipahami.</strong> Petunjuk ditulis dalam Bahasa Indonesia yang lugas, dengan istilah teknis dijelaskan seperlunya, karena alat ini dibuat untuk pemilik usaha, bukan untuk sesama programmer.</li>
+        <li><strong>Periksa sebelum cetak.</strong> Kami selalu menganjurkan Anda memindai ulang QR dengan ponsel sendiri sebelum mencetak banyak. Alat secanggih apa pun tidak menggantikan satu kali pemeriksaan manusiawi.</li>
+      </ul>
+
+      <h2>Ajakan masukan</h2>
+      <p>QRUsaha masih bertumbuh, dan masukan dari pengguna nyata adalah bahan bakar utamanya. Jenis alat QR apa yang paling dibutuhkan usaha Anda tetapi belum tersedia di sini? Bagian mana dari panduan kami yang masih membingungkan? Apakah ada QR hasil unduhan yang gagal dipindai pada perangkat tertentu? Semua itu sangat membantu kami memperbaiki situs ini, jauh lebih membantu daripada sekadar angka kunjungan.</p>
+      <p>Silakan sampaikan masukan, laporan kendala, saran alat baru, atau koreksi panduan melalui halaman <a href={u('/kontak/')}>Kontak</a> ke alamat email qrusaha@gmail.com. Satu permintaan kecil: demi keamanan Anda sendiri, jangan pernah mengirimkan kata sandi WiFi asli, PIN, atau data sensitif lain lewat email — untuk melaporkan kendala, cukup jelaskan jenis alatnya dan contoh isi yang sudah disamarkan. Terima kasih sudah memakai QRUsaha. Semoga usaha Anda makin ramai, makin rapi, dan laris manis.</p>
+    </div>
+  </div>
+</Layout>

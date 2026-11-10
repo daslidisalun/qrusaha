@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Toko.astro';
+import { u } from '../lib/base.js';
+---
+<Layout title="Kebijakan Privasi — QRUsaha" description="Kebijakan Privasi QRUsaha: data yang Anda masukkan di generator diproses 100% di browser Anda dan tidak dikirim, diunggah, atau disimpan oleh situs ini.">
+  <div class="bungkus">
+    <div class="pembuka artikel">
+      <span class="label-seksi">QRUsaha</span>
+      <h1>Kebijakan Privasi</h1>
+      <p>Kebijakan Privasi ini menjelaskan, secara teknis dan sejujur-jujurnya, apa yang terjadi pada data Anda saat memakai QRUsaha. Inti dari kebijakan ini hanya satu kalimat: <strong>data yang Anda masukkan ke generator QR diproses sepenuhnya di browser Anda dan tidak pernah dikirim ke server kami.</strong> Halaman ini berlaku untuk seluruh situs QRUsaha, termasuk semua halaman generator, halaman <a href={u('/stiker/')}>Lembar Stiker</a>, dan halaman blog. Terakhir diperbarui pada November 2026.</p>
+      <p>Kami menulisnya dengan bahasa sederhana dan spesifik, bukan rumusan hukum yang kabur, karena perlindungan privasi di sini adalah konsekuensi langsung dari cara situs ini dibangun — bukan sekadar janji administratif.</p>
+
+      <h2>1. Data yang Anda masukkan di generator tidak dikirim, tidak diunggah, tidak disimpan</h2>
+      <p>Setiap alat di QRUsaha meminta Anda mengisi informasi tertentu agar bisa diubah menjadi kode QR. Contohnya antara lain:</p>
+      <ul>
+        <li>Nomor telepon atau nomor WhatsApp, beserta teks pesan pembuka yang Anda tulis.</li>
+        <li>Nama jaringan WiFi (SSID), jenis keamanan, dan kata sandi WiFi Anda.</li>
+        <li>Nama bank atau dompet digital, nomor rekening atau nomor akun, dan nama pemilik rekening.</li>
+        <li>Tautan atau alamat web, termasuk tautan ulasan Google usaha Anda.</li>
+        <li>Isi kartu nama digital: nama, jabatan, nama usaha, nomor telepon, email, dan alamat.</li>
+        <li>Teks bebas apa pun yang Anda masukkan pada generator teks.</li>
+      </ul>
+      <p>Seluruh informasi di atas hanya hidup di dalam halaman yang sedang terbuka di browser Anda. Kode program yang berjalan di perangkat Anda mengubah ketikan Anda menjadi gambar QR, menampilkan pratinjaunya, dan menyiapkan berkas unduhan. Tidak ada server yang menerima isi QR tersebut: QRUsaha adalah situs statis tanpa basis data untuk menyimpan isi formulir, tanpa fungsi unggah isi QR, dan tanpa akun pengguna yang bisa dikaitkan dengan data apa pun.</p>
+      <p>Artinya, kami benar-benar tidak mengetahui QR apa yang Anda buat atau kata sandi WiFi apa yang Anda pakai. Bila Anda menutup halaman, isian formulir hilang. Unduhan PNG, SVG, atau lembar stiker dibuat dan tersimpan di perangkat Anda sendiri.</p>
+      <div class="kotak-info"><p>Perlu ditegaskan: QR yang sudah dicetak dapat dipindai siapa pun yang melihatnya, dan hasil pindaiannya menunjukkan isi yang Anda masukkan — misalnya kata sandi WiFi atau nomor rekening. Itu memang fungsi QR. Karena itu, tempelkan QR berisi informasi sensitif hanya di tempat yang Anda kehendaki, dan baca anjuran keamanan di <a href={u('/disclaimer/')}>Disclaimer</a>.</p></div>
+
+      <h2>2. Permintaan jaringan saat membuka halaman: hanya berkas situs dan huruf dari Google Fonts</h2>
+      <p>Agar sebuah halaman web bisa tampil, browser Anda harus meminta berkas-berkas penyusunnya dari server. Di QRUsaha, permintaan jaringan yang terjadi saat Anda membuka halaman hanyalah dua jenis berikut:</p>
+      <ul class="daftar-cek">
+        <li><strong>Berkas situs itu sendiri</strong> — halaman HTML, berkas tampilan (CSS), berkas program (JavaScript), dan gambar bawaan situs. Server penyajian situs statis pada umumnya mencatat akses teknis yang wajar, seperti alamat IP, waktu akses, dan halaman yang diminta, untuk keamanan layanan. Catatan itu berisi halaman yang Anda buka, bukan isi formulir, karena isi formulir memang tidak pernah dikirim.</li>
+        <li><strong>Huruf (font) dari Google Fonts</strong> — agar tampilannya konsisten, QRUsaha memuat huruf dari layanan Google Fonts. Untuk melayani permintaan huruf tersebut, Google dapat melihat alamat IP perangkat Anda dan informasi teknis peramban yang menyertai permintaan itu, sebagaimana terjadi pada sangat banyak situs lain di internet yang memakai Google Fonts. Penanganan data oleh Google untuk layanan tersebut tunduk pada kebijakan privasi Google sendiri.</li>
+      </ul>
+      <p>Di luar dua hal itu, halaman alat QRUsaha tidak memanggil layanan analitik, jaringan iklan, atau pelacak pihak ketiga. Program pembuat QR berjalan lokal dan tidak memiliki langkah pengiriman jaringan untuk isi formulir.</p>
+
+      <h2>3. Tidak ada cookie, tidak ada analitik, tidak ada akun</h2>
+      <p>QRUsaha tidak memasang cookie untuk melacak perilaku Anda, tidak menggunakan layanan analitik seperti penghitung kunjungan yang merekam aktivitas per pengguna, dan tidak menyediakan pendaftaran atau login. Karena tidak ada akun, tidak ada pula kata sandi, profil, atau riwayat pembuatan QR yang tersimpan atas nama Anda di pihak kami. Anda tidak perlu memberikan alamat email, nomor telepon, atau identitas apa pun hanya untuk membuat QR di situs ini.</p>
+      <h2>4. Berkas logo yang Anda pilih juga hanya dibaca di browser</h2>
+      <p>Beberapa alat QRUsaha memberi pilihan menempelkan logo usaha di tengah QR. Saat Anda memilih berkas gambar dari perangkat Anda, berkas itu dibaca langsung oleh browser Anda untuk digabungkan ke dalam gambar QR. Berkas logo tersebut tidak diunggah ke server kami, tidak disimpan oleh situs ini, dan tidak dibagikan ke pihak mana pun. Bila Anda menutup halaman, tidak ada salinan logo Anda yang tertinggal di pihak kami.</p>
+
+      <h2>5. Tautan keluar menuju layanan pihak lain</h2>
+      <p>Situs ini memuat tautan keluar, misalnya tautan menuju layanan WhatsApp (wa.me), halaman ulasan Google, situs bank atau dompet digital, atau situs lain yang relevan dengan panduan kami. Begitu Anda mengeklik tautan semacam itu dan meninggalkan QRUsaha, perlakuan terhadap data Anda diatur oleh kebijakan privasi layanan tujuan tersebut, bukan oleh kebijakan ini. Hal yang sama berlaku untuk QR hasil buatan Anda: memindai QR WhatsApp akan membuka WhatsApp, memindai QR tautan akan membuka situs tujuannya — dan interaksi Anda sesudahnya berada di layanan tersebut. Kami menganjurkan Anda membaca kebijakan privasi layanan yang Anda gunakan bila Anda merasa perlu.</p>
+      <p>Tautan keluar hanya bekerja bila Anda mengekliknya atau memindai QR-nya; keberadaannya di halaman tidak berarti data formulir Anda dikirim ke layanan tersebut secara otomatis.</p>
+
+      <h2>6. Email yang Anda kirimkan kepada kami</h2>
+      <p>Satu-satunya data pribadi yang mungkin kami terima adalah bila Anda sendiri memilih menghubungi kami lewat email ke qrusaha@gmail.com. Dalam hal itu, kami menerima alamat email Anda dan isi pesan yang Anda tulis, dan kami memakainya hanya untuk membaca serta membalas keperluan Anda. Karena itu, seperti diingatkan di halaman <a href={u('/kontak/')}>Kontak</a>, jangan pernah mengirimkan kata sandi WiFi asli, PIN, atau data sensitif lain lewat email — untuk melaporkan kendala QR, cukup sertakan jenis alatnya dan contoh isi yang sudah Anda samarkan.</p>
+
+      <h2>7. Perubahan kebijakan dan kontak</h2>
+      <p>Bila cara kerja situs ini berubah secara berarti — misalnya bila suatu hari ada fitur baru yang memang memerlukan pemrosesan di server — Kebijakan Privasi ini akan diperbarui terlebih dahulu dan perubahan pentingnya akan ditulis secara jelas di halaman ini, bukan disembunyikan. Versi yang berlaku adalah versi yang sedang tampil di halaman ini.</p>
+      <p>Bila ada bagian dari kebijakan ini yang belum jelas, atau Anda ingin menanyakan bagaimana data Anda diperlakukan, silakan hubungi kami melalui email ke <a href="mailto:qrusaha@gmail.com">qrusaha@gmail.com</a> atau lewat halaman <a href={u('/kontak/')}>Kontak</a>. Ringkasan latar belakang kenapa situs ini dibangun dengan cara yang menjaga privasi sejak dari rancangannya bisa Anda baca di halaman <a href={u('/tentang/')}>Tentang QRUsaha</a>.</p>
+    </div>
+  </div>
+</Layout>

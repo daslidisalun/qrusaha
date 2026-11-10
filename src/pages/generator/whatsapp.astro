@@ -1,0 +1,73 @@
+---
+import Layout from '../../layouts/Toko.astro';
+import PanelQR from '../../components/PanelQR.astro';
+import Editorial from '../../konten/ed-whatsapp.astro';
+import { u } from '../../lib/base.js';
+---
+
+<Layout
+  title="Generator QR WhatsApp — QRUsaha"
+  description="Buat QR WhatsApp gratis untuk usaha Anda: pelanggan memindai dan obrolan langsung terbuka dengan pesan siap kirim. Tanpa daftar, data tidak diunggah."
+>
+  <div class="bungkus">
+    <div class="pembuka">
+      <span class="label-seksi">Generator QR</span>
+      <h1>QR WhatsApp</h1>
+      <p style="max-width:720px">QR ini membuka obrolan WhatsApp ke nomor usaha Anda, lengkap dengan pesan pembuka yang sudah terisi. Pelanggan tidak perlu menyimpan nomor dulu dan tidak perlu mengetik sapaan dari nol — dua hambatan kecil yang diam-diam membuat banyak pesanan batal. Cocok untuk pesan antar, tanya stok, konsultasi, dan booking jasa.</p>
+    </div>
+
+    <div class="panel-qr" data-panel>
+      <form class="kartu-form" autocomplete="off">
+        <div class="kolom">
+          <label for="wa-nomor">Nomor WhatsApp usaha</label>
+          <input type="tel" id="wa-nomor" data-bidang="nomor" placeholder="cth: 0812-3456-7890" value="0812-3456-7890" />
+          <p class="petunjuk">Tulis seperti biasa (08…); sistem mengubahnya menjadi format internasional 62… yang dibutuhkan tautan WhatsApp.</p>
+        </div>
+        <div class="kolom">
+          <label>Contoh pesan siap-isi</label>
+          <div class="grup-tombol-template">
+            <button type="button" class="tombol polos kecil" data-template="antar">🛵 Pesan Antar</button>
+            <button type="button" class="tombol polos kecil" data-template="stok">📦 Tanya Stok</button>
+            <button type="button" class="tombol polos kecil" data-template="booking">📅 Booking Jasa</button>
+            <button type="button" class="tombol polos kecil" data-template="">Kosongkan</button>
+          </div>
+        </div>
+        <div class="kolom">
+          <label for="wa-pesan">Isi pesan pembuka</label>
+          <textarea id="wa-pesan" data-bidang="pesan">Halo, saya mau pesan antar. Pesanan saya: </textarea>
+          <p class="petunjuk">Akhiri dengan titik dua atau kalimat terbuka agar pelanggan tinggal melengkapi. Periksa struk "Isi QR Anda" untuk melihat tautan persis yang tertanam.</p>
+        </div>
+      </form>
+      <PanelQR labelAwal="Chat WhatsApp Kami" />
+    </div>
+
+    <div class="artikel">
+      <Editorial />
+    </div>
+  </div>
+
+  <script>
+    import { pasangPanel } from '../../lib/qr-ui.js';
+    import { muatanWhatsApp } from '../../lib/qr.js';
+
+    const panel = document.querySelector('[data-panel]');
+    const nomor = panel.querySelector('[data-bidang="nomor"]');
+    const pesan = panel.querySelector('[data-bidang="pesan"]');
+    const template = {
+      antar: 'Halo, saya mau pesan antar. Pesanan saya: ',
+      stok: 'Halo, saya mau tanya stok. Apakah barang ini masih tersedia: ',
+      booking: 'Halo, saya mau booking. Nama saya: \nLayanan: \nHari & jam: ',
+    };
+    panel.querySelectorAll('[data-template]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        pesan.value = template[btn.dataset.template] ?? '';
+        pesan.dispatchEvent(new Event('input', { bubbles: true }));
+        pesan.focus();
+      });
+    });
+    pasangPanel(panel, {
+      buatMuatan: () => (nomor.value.replace(/\D/g, '').length >= 9 ? muatanWhatsApp(nomor.value, pesan.value) : ''),
+      namaBerkas: 'qr-whatsapp',
+    });
+  </script>
+</Layout>

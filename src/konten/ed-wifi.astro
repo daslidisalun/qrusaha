@@ -1,0 +1,60 @@
+<h2>QR WiFi: Pelanggan Terhubung Sekali Pindai, Tanpa Mengeja Kata Sandi</h2>
+<p>“Mbak, WiFi-nya apa? Sandinya apa?” — pertanyaan ini mungkin terdengar sepuluh kali sehari di warung kopi, salon, atau ruang tunggu bengkel Anda. Dan hampir selalu berlanjut dengan adegan mengeja: “huruf besar B, angka nol bukan huruf O, pakai garis bawah…” QR WiFi mengakhiri adegan itu. Pelanggan memindai kode di meja, HP mereka menampilkan tawaran untuk bergabung ke jaringan Anda, satu ketukan, dan mereka langsung terhubung. Tidak ada salah ketik, tidak ada antrean bertanya ke kasir.</p>
+<p>Di balik kemudahan itu, isi QR WiFi adalah sebaris teks dengan format baku yang dikenali Android dan iPhone modern: <code>WIFI:T:WPA;S:NamaJaringan;P:KataSandi;;</code>. Huruf <code>T</code> menandakan jenis keamanan, <code>S</code> adalah SSID atau nama jaringan, dan <code>P</code> adalah kata sandinya. Karena formatnya baku, generator di halaman ini hanya perlu Anda isi nama jaringan dan sandi persis seperti yang tertera di pengaturan router — sisanya disusun otomatis agar terbaca kamera dengan benar, termasuk bila nama jaringan Anda mengandung spasi.</p>
+
+<h2>Cara Memakai Generator QR WiFi, Langkah demi Langkah</h2>
+<ol class="langkah">
+<li><strong>Lihat nama jaringan dan sandi yang benar-benar aktif.</strong> Cek stiker di bawah router, aplikasi penyedia internet Anda, atau halaman pengaturan router. Jangan mengandalkan ingatan — satu karakter sandi yang keliru membuat semua pelanggan gagal terhubung. Perhatikan huruf besar-kecilnya, karena sandi WiFi peka terhadap itu.</li>
+<li><strong>Ketik nama jaringan (SSID) persis sama.</strong> Salin apa adanya, termasuk spasi, huruf kapital, dan angka di ujungnya, misalnya “Kopi Senja - Tamu” berbeda dengan “KopiSenja-Tamu” di mata HP pelanggan. Bila router Anda memancarkan dua jaringan, 2.4 GHz dan 5 GHz, pilih nama jaringan tamu yang memang Anda siapkan untuk pelanggan.</li>
+<li><strong>Isi kata sandi dan pilih jenis keamanannya.</strong> Kebanyakan router rumahan dan usaha kecil memakai WPA/WPA2, jadi biarkan pilihan pada WPA. Pilihan tanpa sandi hanya untuk jaringan yang memang terbuka tanpa kata sandi sama sekali. Bila router lama Anda masih menawarkan WEP, jangan dipilih untuk jaringan usaha — WEP sudah tidak aman dan mudah dibobol.</li>
+<li><strong>Periksa struk isi QR di panel.</strong> Anda akan melihat teks <code>WIFI:T:WPA;S:...;P:...;;</code> yang akan dibaca HP pelanggan. Cocokkan nama dan sandinya sekali lagi dengan pengaturan router. Ingat, teks ini memang menampilkan sandi secara terbuka — itu sifat QR WiFi, dan alasan kenapa penempatannya perlu diatur, seperti dibahas di bagian keamanan di bawah.</li>
+<li><strong>Uji dengan HP yang belum pernah terhubung.</strong> Ini langkah yang paling sering dilewatkan. HP Anda sendiri mungkin sudah mengingat sandi lama, jadi gunakan HP karyawan atau minta HP diatur untuk “lupakan jaringan” dulu, lalu pindai QR hasil unduhan. Di Android dan iPhone keluaran beberapa tahun terakhir, tawaran bergabung harus muncul otomatis setelah pemindaian.</li>
+<li><strong>Unduh ukuran besar dan simpan file aslinya.</strong> Unduh PNG 1024 px atau 2048 px, beri nama file yang jelas seperti <code>qr-wifi-tamu-kopi-senja.png</code>, dan simpan bersama dokumen usaha Anda. Setiap kali sandi diganti, Anda akan membuat QR baru dari awal — file lama jangan dipakai lagi.</li>
+</ol>
+
+<div class="kotak-waspada"><p><strong>Ingat baik-baik:</strong> QR WiFi pada dasarnya sama dengan membagikan kata sandi itu sendiri. Siapa pun yang bisa memotret QR Anda bisa membaca sandinya, karena isi kodenya adalah teks sandi dalam format baku. Karena itu jangan pajang QR WiFi di tempat yang bisa dijangkau orang yang bukan pelanggan — misalnya di dinding luar menghadap jalan atau di jendela yang bisa dipotret dari trotoar. Pajanglah di dalam ruangan, di meja, atau di area tunggu.</p></div>
+
+<h2>Contoh Nyata untuk Beberapa Jenis Usaha</h2>
+<h3>Warung kopi — jaringan tamu terpisah dari kasir</h3>
+<p>Kopi Senja menjalankan dua jaringan: “KopiSenja-Operasional” untuk tablet kasir dan printer struk, serta “Kopi Senja - Tamu” khusus pelanggan dengan sandi yang diganti setiap awal bulan, misalnya <code>ngopi2026senja</code>. Hanya jaringan tamu yang dibuatkan QR dan ditempel di setiap meja. Manfaatnya ganda: pelanggan tidak pernah menyentuh jaringan yang dipakai sistem kasir, dan saat sandi tamu diganti, operasional warung sama sekali tidak terganggu. Di meja dekat colokan — tempat favorit pekerja lepas — QR ditempel berdampingan dengan tulisan “WiFi gratis untuk pelanggan, tanya kasir bila gagal terhubung”.</p>
+<h3>Salon dan barbershop — mengisi waktu tunggu</h3>
+<p>Di Salon Ayu, pelanggan sering menunggu 20–40 menit saat akhir pekan. QR WiFi ditaruh di meja ruang tunggu dan di samping cermin, dengan jaringan tamu bersandi <code>ayucantik12</code>. Pelanggan yang menunggu bisa menonton video tutorial gaya rambut — yang sering berujung mereka menunjukkan contoh model itu ke kapster. Pemilik salon sengaja tidak menuliskan sandi di papan tulis lagi, karena tulisan tangan sering salah dibaca; QR menghapus salah baca itu sepenuhnya.</p>
+<h3>Bengkel — ruang tunggu yang tidak membosankan</h3>
+<p>Rizki Motor menaruh QR WiFi di ruang tunggu bersama QR WhatsApp untuk cek status servis. Nama jaringannya dibuat sederhana, “RizkiMotor-Tamu”, dan sandinya <code>servisaja26</code>. Pelanggan yang menunggu motornya dibongkar bisa tetap bekerja atau memesan ojek daring tanpa menghabiskan kuota. Karena ruang tunggu bengkel berada di dalam area bengkel, risiko QR dipotret orang luar yang sekadar lewat hampir tidak ada — penempatan seperti ini yang paling ideal.</p>
+<h3>Toko kelontong dan jasa fotokopi — jaringan yang memang tidak untuk umum</h3>
+<p>Tidak semua usaha perlu membagikan WiFi, dan contoh ini penting: Toko Berkah, toko kelontong yang memakai WiFi hanya untuk mesin kasir dan CCTV, memilih <em>tidak</em> membuat QR WiFi untuk pelanggan. Itu keputusan yang benar. QR WiFi dibuat hanya untuk jaringan yang memang diniatkan untuk dibagikan. Bila sesekali ada pelanggan jasa fotokopi yang perlu mengirim berkas besar, pemilik membantu menghubungkannya secara manual tanpa memajang sandi untuk semua orang.</p>
+
+<h2>Amankan Jaringan Tamu Sebelum Memajang QR</h2>
+<p>Membagikan akses internet ke pelanggan itu keramahan, tetapi tetap harus rapi. Lakukan persiapan berikut sebelum QR pertama ditempel:</p>
+<ul class="daftar-cek">
+<li>Aktifkan jaringan tamu (guest network) di router bila tersedia, dan arahkan QR hanya ke jaringan itu — bukan ke jaringan utama yang dipakai kasir, komputer, dan CCTV.</li>
+<li>Pakai keamanan WPA2 atau WPA3. Hindari WEP yang sudah tidak aman, dan jangan menjalankan jaringan terbuka tanpa sandi untuk pelanggan umum.</li>
+<li>Ganti kata sandi tamu secara berkala, misalnya setiap satu atau dua bulan, atau segera setelah ada karyawan berhenti. Setiap penggantian sandi wajib diikuti pembuatan dan pencetakan ulang QR.</li>
+<li>Beri nama jaringan yang jelas dan sopan, tanpa kata-kata yang menyinggung, karena nama itu akan muncul di daftar WiFi semua HP di sekitar usaha Anda.</li>
+<li>Batasi kecepatan jaringan tamu bila router Anda mendukungnya, supaya aktivitas pelanggan tidak menghabiskan lebar pita yang dibutuhkan kasir dan pembayaran digital.</li>
+<li>Uji ulang QR setiap selesai mengganti sandi atau mengganti router — QR lama yang masih tertempel adalah sumber kebingungan paling umum.</li>
+</ul>
+
+<h2>Tips Mencetak dan Memasang QR WiFi</h2>
+<p>Karena sandi di dalam QR ini relatif panjang, titik-titik QR WiFi cenderung lebih rapat dibanding QR tautan pendek. Cetaklah sedikit lebih besar: minimal 6×6 cm untuk di meja, dan 8×8 cm atau lebih untuk di dinding ruang tunggu. Jaga kontras tetap tinggi — modul gelap di atas latar putih polos — dan hindari menempelkan logo besar di tengahnya, karena data yang padat membuat ruang toleransi kesalahan lebih kecil.</p>
+<p>Tempatkan di titik pelanggan duduk dan menunggu: di meja, di sandaran kursi tunggu, di dekat stopkontak, atau di balik daftar harga. Sertakan satu baris penjelasan, misalnya “Pindai untuk terhubung ke WiFi tamu — tanpa perlu tanya sandi”. Untuk usaha yang mengganti sandi berkala, cetak QR di kertas yang mudah diganti dalam bingkai akrilik berdiri, bukan sebagai stiker permanen di dinding, supaya penggantian tiap bulan tidak merusak cat dan tidak menyisakan QR lama yang sudah tidak berlaku.</p>
+<div class="kotak-info"><p><strong>Soal HP pelanggan:</strong> hampir semua Android dan iPhone modern akan langsung menawarkan bergabung ke jaringan begitu kamera membaca format WIFI ini. Pada sebagian HP lama, pelanggan mungkin perlu membuka aplikasi pemindai khusus atau mengetuk notifikasi hasil pindai terlebih dahulu. Siapkan sandi tertulis kecil di kasir sebagai cadangan untuk kasus seperti itu — bukan dipajang, cukup disampaikan saat diminta.</p></div>
+
+<h2>Kesalahan Umum yang Harus Dihindari</h2>
+<ul class="daftar-silang">
+<li>Membuat QR untuk jaringan utama yang sama dengan kasir dan CCTV, sehingga sandi operasional usaha tersebar ke semua pelanggan.</li>
+<li>Memajang QR WiFi di jendela depan atau dinding luar, padahal siapa pun yang memotretnya bisa membaca sandi dan ikut memakai jaringan Anda dari luar.</li>
+<li>Salah menyalin nama jaringan — kurang satu spasi atau beda huruf kapital — lalu menyimpulkan generatornya yang rusak.</li>
+<li>Mengganti sandi router tetapi lupa mengganti QR yang tertempel, sehingga pelanggan berulang kali gagal dan akhirnya memenuhi meja kasir dengan keluhan.</li>
+<li>Masih memakai keamanan WEP atau jaringan terbuka demi “biar gampang”, padahal risikonya jauh lebih besar daripada manfaatnya.</li>
+<li>Mencetak QR terlalu kecil padahal isinya panjang, sehingga kamera HP kelas bawah gagal memindai dari jarak wajar.</li>
+</ul>
+
+<h2>Pertanyaan Umum</h2>
+<div class="faq">
+<details><summary>Apakah pelanggan tetap perlu tahu kata sandi WiFi saya?</summary><p>Tidak perlu mengejanya atau mengetiknya. Sandi sudah terkandung di dalam QR, dan HP pelanggan akan mengisinya otomatis saat mereka menerima tawaran bergabung. Namun perlu diingat, pelanggan yang paham bisa melihat sandi itu — QR WiFi memang cara membagikan sandi, bukan cara menyembunyikannya.</p></details>
+<details><summary>HP saya memindai QR-nya, tetapi kenapa tidak langsung terhubung?</summary><p>Beberapa kemungkinan: nama jaringan atau sandi di QR tidak persis sama dengan yang aktif di router, jaringan yang dimaksud sedang tidak dipancarkan, atau HP tersebut termasuk model lama yang hanya menampilkan isi teks QR tanpa tawaran bergabung. Uji dengan HP lain yang belum pernah terhubung, dan cocokkan kembali ejaan SSID dan sandinya.</p></details>
+<details><summary>Seberapa sering saya harus mengganti sandi dan QR WiFi tamu?</summary><p>Untuk usaha yang ramai, mengganti sandi tamu setiap satu sampai dua bulan adalah kebiasaan yang sehat, ditambah segera setiap ada perubahan tim. Karena sandi tertanam di QR, setiap penggantian sandi berarti membuat QR baru dan menukar semua cetakannya — jangan sampai ada QR lama yang tertinggal.</p></details>
+<details><summary>Bolehkah saya memakai mode tanpa sandi agar lebih praktis?</summary><p>Mode tanpa sandi hanya cocok bila jaringan Anda memang sengaja dibuka tanpa kata sandi, misalnya jaringan publik dengan halaman sambutan tersendiri. Untuk router usaha biasa, jangan. Jaringan terbuka membuat lalu lintas pelanggan tidak terenkripsi dan mengundang pemakaian oleh orang di luar usaha Anda.</p></details>
+<details><summary>Apakah QR WiFi dari jaringan 2.4 GHz bisa dipakai untuk jaringan 5 GHz saya?</summary><p>Tidak bisa dicampur. Setiap QR hanya membawa satu nama jaringan dan satu sandi. Bila Anda ingin menawarkan dua-duanya, buat dua QR terpisah dengan label yang jelas, misalnya “WiFi Tamu — 2.4G (jangkauan luas)” dan “WiFi Tamu — 5G (lebih kencang, jarak dekat)”.</p></details>
+</div>

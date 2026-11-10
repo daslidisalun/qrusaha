@@ -1,0 +1,79 @@
+---
+import Layout from '../../layouts/Toko.astro';
+import PanelQR from '../../components/PanelQR.astro';
+import Editorial from '../../konten/ed-kartunama.astro';
+---
+
+<Layout
+  title="Generator QR Kartu Nama Digital (vCard) — QRUsaha"
+  description="Buat QR kartu nama digital usaha Anda dalam format vCard: sekali pindai, kontak tersimpan di HP pelanggan lengkap dengan alamat dan jam buka."
+>
+  <div class="bungkus">
+    <div class="pembuka">
+      <span class="label-seksi">Generator QR</span>
+      <h1>QR Kartu Nama Digital</h1>
+      <p style="max-width:720px">Kartu nama kertas mudah hilang; kontak yang tersimpan di HP tidak. QR ini memakai format vCard — standar kartu nama digital yang dikenali Android dan iPhone. Sekali pindai, pelanggan ditawari menyimpan nama usaha, nomor telepon, WhatsApp, alamat, jam buka, dan situs Anda sebagai kontak baru. Lain kali mereka butuh jasa Anda, nama usaha Anda muncul di daftar kontak mereka — bukan di tumpukan kertas.</p>
+    </div>
+
+    <div class="panel-qr" data-panel>
+      <form class="kartu-form" autocomplete="off">
+        <div class="kolom">
+          <label for="kartu-usaha">Nama usaha</label>
+          <input type="text" id="kartu-usaha" data-bidang="usaha" placeholder="cth: Bengkel Jaya Motor" value="Bengkel Jaya Motor" />
+        </div>
+        <div class="baris-dua">
+          <div class="kolom">
+            <label for="kartu-telepon">Nomor telepon</label>
+            <input type="tel" id="kartu-telepon" data-bidang="telepon" placeholder="cth: (031) 555-0102" value="(031) 555-0102" />
+          </div>
+          <div class="kolom">
+            <label for="kartu-wa">Nomor WhatsApp</label>
+            <input type="tel" id="kartu-wa" data-bidang="whatsapp" placeholder="cth: 0812-3456-7890" value="0812-3456-7890" />
+            <p class="petunjuk">Otomatis diubah ke format 62….</p>
+          </div>
+        </div>
+        <div class="kolom">
+          <label for="kartu-alamat">Alamat usaha</label>
+          <input type="text" id="kartu-alamat" data-bidang="alamat" placeholder="cth: Jl. Raya Menganti No. 88, Surabaya" value="Jl. Raya Menganti No. 88, Surabaya" />
+        </div>
+        <div class="baris-dua">
+          <div class="kolom">
+            <label for="kartu-jam">Jam buka</label>
+            <input type="text" id="kartu-jam" data-bidang="jam" placeholder="cth: Senin–Sabtu 08.00–17.00" value="Senin–Sabtu 08.00–17.00" />
+          </div>
+          <div class="kolom">
+            <label for="kartu-situs">Situs / media sosial (opsional)</label>
+            <input type="url" id="kartu-situs" data-bidang="situs" placeholder="cth: bengkeljaya.id" value="bengkeljaya.id" />
+          </div>
+        </div>
+      </form>
+      <PanelQR labelAwal="Simpan Kontak Kami" />
+    </div>
+
+    <div class="artikel">
+      <Editorial />
+    </div>
+  </div>
+
+  <script>
+    import { pasangPanel } from '../../lib/qr-ui.js';
+    import { muatanVCard } from '../../lib/qr.js';
+
+    const panel = document.querySelector('[data-panel]');
+    const ambil = (nama) => panel.querySelector(`[data-bidang="${nama}"]`);
+    pasangPanel(panel, {
+      buatMuatan: () =>
+        ambil('usaha').value.trim()
+          ? muatanVCard({
+              usaha: ambil('usaha').value,
+              telepon: ambil('telepon').value,
+              whatsapp: ambil('whatsapp').value,
+              alamat: ambil('alamat').value,
+              jamBuka: ambil('jam').value,
+              situs: ambil('situs').value,
+            })
+          : '',
+      namaBerkas: 'qr-kartu-nama',
+    });
+  </script>
+</Layout>

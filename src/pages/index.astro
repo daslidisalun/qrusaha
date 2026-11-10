@@ -1,0 +1,153 @@
+---
+import Layout from '../layouts/Toko.astro';
+import PanelQR from '../components/PanelQR.astro';
+import { u } from '../lib/base.js';
+
+const alat = [
+  ['💬', '/generator/whatsapp/', 'QR WhatsApp', 'Pelanggan memindai, obrolan langsung terbuka dengan pesan siap kirim. Untuk pesan antar, tanya stok, dan booking.'],
+  ['📶', '/generator/wifi/', 'QR WiFi', 'Sekali pindai, HP pelanggan langsung terhubung ke WiFi usaha Anda. Tidak perlu mengeja sandi lagi.'],
+  ['🔗', '/generator/tautan/', 'QR Tautan / Link', 'Untuk menu digital, katalog, Google Maps, Linktree, atau halaman apa pun milik usaha Anda.'],
+  ['⭐', '/generator/ulasan-google/', 'QR Ulasan Google', 'Ajak pelanggan memberi ulasan bintang lima dengan cara yang sopan dan resmi.'],
+  ['💳', '/generator/info-bayar/', 'QR Info Pembayaran', 'Teks info bank/e-wallet yang bisa disalin pelanggan. Bukan QRIS — pendamping yang jujur.'],
+  ['📇', '/generator/kartu-nama/', 'QR Kartu Nama Digital', 'Sekali pindai, kontak usaha Anda tersimpan di HP pelanggan: nomor, alamat, jam buka.'],
+  ['✏️', '/generator/teks/', 'QR Teks Bebas', 'Pengumuman, tata tertib, petunjuk antrean — teks apa pun menjadi QR.'],
+  ['🖨️', '/stiker/', 'Lembar Stiker Siap Cetak', 'Susun 4, 6, atau 12 stiker QR dalam satu lembar A4 dengan garis potong. Tinggal cetak.'],
+];
+---
+
+<Layout
+  title="QRUsaha — QR Code Praktis untuk Usaha Kecil"
+  description="Generator QR gratis untuk UMKM Indonesia: WhatsApp, WiFi, menu digital, ulasan Google, info pembayaran, kartu nama. Dibuat 100% di browser — data Anda tidak diunggah."
+>
+  <div class="bungkus">
+    <div class="pembuka">
+      <span class="label-seksi">Generator QR Gratis untuk UMKM</span>
+      <h1>QR Code Praktis untuk Usaha Kecil</h1>
+      <p style="max-width:720px">Satu kotak hitam-putih bisa menghemat banyak penjelasan di kasir. Pelanggan memindai QR WhatsApp untuk memesan, memindai QR WiFi untuk terhubung, memindai QR menu untuk memilih makanan — tanpa mengetik alamat panjang, tanpa mengeja kata sandi, tanpa antre bertanya. QRUsaha membantu Anda membuat semua QR itu dalam waktu kurang dari semenit, gratis, dan langsung siap cetak.</p>
+      <p style="max-width:720px">Yang terpenting: <strong>semua proses terjadi di browser Anda</strong>. Nomor WhatsApp, kata sandi WiFi, dan nomor rekening yang Anda ketik tidak pernah dikirim ke server mana pun — QR-nya lahir di perangkat Anda sendiri. Silakan putus internet setelah halaman terbuka; alat ini tetap bekerja.</p>
+    </div>
+
+    <h2 style="margin-top:1.6rem">Coba langsung: QR WhatsApp</h2>
+    <p style="max-width:720px">Ini generator yang paling sering dipakai pemilik warung dan toko. Isi nomor WhatsApp usaha Anda, pilih contoh pesan, dan QR langsung jadi di stiker sebelah kanan.</p>
+
+    <div class="panel-qr" data-panel>
+      <form class="kartu-form" id="form-wa" autocomplete="off">
+        <div class="kolom">
+          <label for="wa-nomor">Nomor WhatsApp usaha</label>
+          <input type="tel" id="wa-nomor" data-bidang="nomor" placeholder="cth: 0812-3456-7890" value="0812-3456-7890" />
+          <p class="petunjuk">Awalan 08… otomatis diubah menjadi format internasional 62…. Nomor inilah yang akan dihubungi pelanggan.</p>
+        </div>
+        <div class="kolom">
+          <label>Contoh pesan siap-isi</label>
+          <div class="grup-tombol-template">
+            <button type="button" class="tombol polos kecil" data-template="antar">🛵 Pesan Antar</button>
+            <button type="button" class="tombol polos kecil" data-template="stok">📦 Tanya Stok</button>
+            <button type="button" class="tombol polos kecil" data-template="booking">📅 Booking Jasa</button>
+            <button type="button" class="tombol polos kecil" data-template="">Kosongkan</button>
+          </div>
+          <p class="petunjuk">Pesan ini terisi otomatis di kolom chat pelanggan. Mereka tinggal melengkapi lalu menekan kirim.</p>
+        </div>
+        <div class="kolom">
+          <label for="wa-pesan">Isi pesan</label>
+          <textarea id="wa-pesan" data-bidang="pesan" placeholder="Tulis pesan pembuka untuk pelanggan…">Halo, saya mau pesan antar. Pesanan saya: </textarea>
+        </div>
+        <p class="kecil" style="margin:0">Butuh pengaturan lengkap dan panduan per jenis usaha? Buka <a href={u('/generator/whatsapp/')}>halaman QR WhatsApp</a>.</p>
+      </form>
+      <PanelQR labelAwal="Nama Usaha Anda" />
+    </div>
+
+    <h2>Semua alat QR</h2>
+    <ul class="etalase">
+      {alat.map(([ikon, href, nama, desk]) => (
+        <li>
+          <span class="ikon" aria-hidden="true">{ikon}</span>
+          <h3>{nama}</h3>
+          <p>{desk}</p>
+          <a href={u(href)}>Buat sekarang →</a>
+        </li>
+      ))}
+    </ul>
+
+    <div class="artikel">
+      <h2>Kenapa usaha kecil butuh QR?</h2>
+      <p>QR (Quick Response) pada dasarnya adalah teks yang ditulis dalam bentuk kotak-kotak agar bisa dibaca kamera dalam sekejap. Isinya bisa berupa tautan, nomor telepon, kata sandi WiFi, atau teks biasa. Bagi usaha kecil, manfaatnya sangat praktis: QR memindahkan pekerjaan "mengetik dan mengeja" dari pelanggan ke kamera. Setiap alamat yang tidak perlu diketik berarti satu peluang salah ketik yang hilang — dan satu pelanggan yang tidak jadi batal karena ribet.</p>
+      <p>Biaya memulainya nyaris nol. Anda tidak perlu aplikasi khusus, tidak perlu berlangganan, dan tidak perlu alat selain printer (atau jasa cetak dekat rumah) untuk menempel hasilnya. Yang Anda butuhkan hanya isi yang benar dan penempatan yang tepat — dua hal yang dibahas tuntas di situs ini.</p>
+
+      <h2>Contoh pemakaian per jenis usaha</h2>
+      <h3>Warung kopi dan kafe kecil</h3>
+      <p>Tiga QR biasanya cukup: QR WhatsApp di meja kasir untuk pesan antar dan reservasi tempat, QR WiFi di setiap meja agar pelanggan betah berlama-lama, dan QR menu digital agar harga bisa diperbarui tanpa mencetak ulang menu. Tambahkan QR ulasan Google di dekat pintu keluar — saat pelanggan pulang dalam keadaan puas, itulah momen terbaik meminta ulasan.</p>
+      <h3>Laundry kiloan</h3>
+      <p>QR WhatsApp dengan pesan siap-isi "Halo, saya mau minta jemput laundry" mengubah pelanggan yang ragu menjadi pelanggan yang bertindak. Tempel stikernya di brosur, di kemasan pakaian selesai, dan di etalase. QR teks berisi jam buka dan aturan pengambilan juga mengurangi pertanyaan berulang.</p>
+      <h3>Salon dan barbershop</h3>
+      <p>Booking adalah nyawa salon. QR WhatsApp dengan template booking (nama, layanan, hari, jam) membuat antrean rapi sejak dari chat pertama. QR kartu nama digital di cermin kasir membuat pelanggan menyimpan kontak Anda — peluang mereka kembali jauh lebih besar daripada selembar kartu yang hilang di dompet.</p>
+      <h3>Bengkel dan jasa servis</h3>
+      <p>Pelanggan bengkel sering datang dalam keadaan panik. QR WhatsApp untuk konsultasi kerusakan, QR tautan ke Google Maps untuk pelanggan yang tersesat, dan QR info pembayaran di kasir membuat alur servis terasa profesional. QR kartu nama di stiker ganti oli adalah pengingat yang menempel berbulan-bulan di kendaraan pelanggan.</p>
+      <h3>Toko kelontong dan toko online rumahan</h3>
+      <p>QR tautan ke katalog (halaman Linktree, album media sosial, atau katalog WhatsApp) menjembatani pembeli offline dan online. QR info pembayaran membantu pelanggan yang membayar lewat transfer — mereka memindai, menyalin nomor, dan membayar tanpa Anda perlu menyebutkan nomor rekening keras-keras di depan pembeli lain.</p>
+      <h3>Jasa dan usaha rumahan lainnya</h3>
+      <p>Penjahit, tukang pijat panggilan, fotografer, pembuat kue pesanan, sampai guru les — polanya sama: satu QR untuk menghubungi (WhatsApp), satu QR untuk membuktikan kualitas (ulasan Google), dan satu QR untuk dibayar dengan rapi (info pembayaran atau QRIS resmi dari bank Anda).</p>
+
+      <h2>Anatomi QR yang bisa dipindai</h2>
+      <p>QR yang baik bukan sekadar gambar yang keluar dari generator. Tiga hal menentukan apakah kamera berhasil membacanya. Pertama, <strong>kontras</strong>: modul (titik-titik hitam) harus jauh lebih gelap daripada latarnya — karena itu panel warna di situs ini memperingatkan Anda bila kombinasi warna terlalu muda. Kedua, <strong>zona tenang</strong>: ruang kosong di sekeliling QR selebar kira-kira empat modul; jangan menempel QR mepet tepi stiker atau gambar lain. Ketiga, <strong>koreksi kesalahan</strong>: pilihan L/M/Q/H menentukan berapa persen kerusakan yang masih bisa ditoleransi — semakin tinggi semakin awet, tetapi titiknya semakin rapat. Untuk stiker yang ditempel di tempat umum, Q atau H adalah pilihan aman.</p>
+      <p>Ukuran cetak mengikuti jarak pindai: patokan kasarnya, lebar QR minimal sepersepuluh jarak kamera. Stiker di meja kasir yang dipindai dari 30 cm cukup 3–4 cm; poster di dinding yang dipindai dari 2 meter butuh setidaknya 20 cm. Panduan lengkapnya ada di artikel <a href={u('/blog/memasang-qr-yang-benar-ukuran-kontras-jarak/')}>memasang QR yang benar</a>.</p>
+
+      <h2>Kesalahan pemasangan yang paling sering terjadi</h2>
+      <ul class="daftar-silang">
+        <li>Mencetak QR terlalu kecil karena mengejar hemat kertas, lalu tidak satu pun kamera berhasil membacanya.</li>
+        <li>Membalik warna — modul terang di atas latar gelap — demi mengejar gaya; banyak kamera lama gagal total.</li>
+        <li>Menempel QR di balik kaca etalase yang memantulkan cahaya, atau di permukaan melengkung seperti botol dan tiang kecil.</li>
+        <li>Tidak pernah menguji hasil cetak dengan HP sendiri sebelum memperbanyak.</li>
+        <li>Mengubah nomor WhatsApp atau tautan tujuan setelah QR tercetak dan tersebar — QR lama otomatis menyesatkan pelanggan.</li>
+      </ul>
+
+      <h2>Pertanyaan umum</h2>
+      <div class="faq">
+        <details>
+          <summary>Apakah QR yang dibuat di sini bisa kedaluwarsa?</summary>
+          <p>Tidak. QR di QRUsaha adalah QR statis: isinya tertanam langsung di dalam gambar dan tidak bergantung pada server mana pun. Selama isi tujuannya masih berlaku (nomor WhatsApp aktif, tautan masih hidup, sandi WiFi belum diganti), QR itu terus bekerja — bertahun-tahun sekalipun.</p>
+        </details>
+        <details>
+          <summary>Apakah QRUsaha bisa membuat QRIS?</summary>
+          <p>Tidak bisa, dan memang tidak seharusnya. QRIS diterbitkan secara resmi oleh bank, e-wallet, dan penyelenggara pembayaran berizin di bawah standar Bank Indonesia — uangnya masuk langsung ke rekening usaha Anda. QR info pembayaran di situs ini hanya berisi teks nomor rekening/e-wallet untuk disalin pelanggan. Penjelasan lengkapnya ada di artikel <a href={u('/blog/qris-vs-qr-biasa-apa-bedanya/')}>QRIS vs QR biasa</a>.</p>
+        </details>
+        <details>
+          <summary>Apakah data saya dikirim ke server QRUsaha?</summary>
+          <p>Tidak. Generator berjalan sepenuhnya di browser Anda; nomor telepon, sandi WiFi, dan nomor rekening yang Anda ketik tidak pernah meninggalkan perangkat. Anda bisa membuktikannya sendiri: buka halaman generator, matikan internet, lalu buat QR — tetap berhasil. Rinciannya ada di <a href={u('/privasi/')}>kebijakan privasi</a>.</p>
+        </details>
+        <details>
+          <summary>Format apa yang sebaiknya saya unduh untuk dicetak?</summary>
+          <p>Untuk cetak, SVG adalah pilihan terbaik karena tajam di segala ukuran. Bila tempat cetak hanya menerima gambar, gunakan PNG 2048 px. PNG 512 px cukup untuk dibagikan lewat chat atau media sosial. Gunakan juga <a href={u('/stiker/')}>lembar stiker</a> bila Anda ingin banyak stiker rapi dalam satu lembar A4.</p>
+        </details>
+        <details>
+          <summary>Bolehkah saya mengubah warna QR mengikuti warna toko saya?</summary>
+          <p>Boleh, selama kontrasnya tetap tegas: modul gelap di atas latar terang. Panel warna kami menghitung rasio kontras dan memperingatkan bila kombinasinya berisiko gagal pindai. Warna khas yang aman misalnya tinta gelap, hijau tua, atau merah tua di atas latar putih/krem.</p>
+        </details>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    import { pasangPanel } from '../lib/qr-ui.js';
+    import { muatanWhatsApp } from '../lib/qr.js';
+
+    const panel = document.querySelector('[data-panel]');
+    const nomor = panel.querySelector('[data-bidang="nomor"]');
+    const pesan = panel.querySelector('[data-bidang="pesan"]');
+    const template = {
+      antar: 'Halo, saya mau pesan antar. Pesanan saya: ',
+      stok: 'Halo, saya mau tanya stok. Apakah barang ini masih tersedia: ',
+      booking: 'Halo, saya mau booking. Nama saya: \nLayanan: \nHari & jam: ',
+    };
+    panel.querySelectorAll('[data-template]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        pesan.value = template[btn.dataset.template] ?? '';
+        pesan.dispatchEvent(new Event('input', { bubbles: true }));
+        pesan.focus();
+      });
+    });
+    pasangPanel(panel, {
+      buatMuatan: () => (nomor.value.replace(/\D/g, '').length >= 9 ? muatanWhatsApp(nomor.value, pesan.value) : ''),
+      namaBerkas: 'qr-whatsapp',
+    });
+  </script>
+</Layout>

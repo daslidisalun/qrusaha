@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Toko.astro';
+import { u } from '../lib/base.js';
+---
+<Layout title="Kontak — QRUsaha" description="Hubungi QRUsaha lewat email qrusaha@gmail.com untuk laporan QR gagal pindai, saran alat baru, koreksi panduan, dan kerja sama. Jangan kirim data sensitif lewat email.">
+  <div class="bungkus">
+    <div class="pembuka artikel">
+      <span class="label-seksi">QRUsaha</span>
+      <h1>Kontak</h1>
+      <p>Punya laporan kendala, saran alat baru, atau koreksi untuk panduan kami? Cara menghubungi QRUsaha hanya satu, dan memang sengaja dibuat sederhana: lewat email ke <a href="mailto:qrusaha@gmail.com">qrusaha@gmail.com</a>. Klik alamat tersebut, tulis keperluan Anda dengan judul yang jelas, lalu kirim. Tidak ada formulir kontak di halaman ini — dan itu disengaja. Formulir kontak akan berarti data Anda dikirim ke sebuah server, sedangkan situs ini sejak awal dirancang tanpa menerima data pengguna, sebagaimana dijelaskan di <a href={u('/privasi/')}>Kebijakan Privasi</a>. Email biasa justru lebih transparan: Anda tahu persis apa yang Anda kirim, dan salinannya tersimpan di kotak terkirim Anda sendiri.</p>
+
+      <h2>Hal-hal yang silakan Anda tuliskan kepada kami</h2>
+      <ul class="daftar-cek">
+        <li><strong>Laporan QR gagal dipindai.</strong> Ini laporan yang paling berharga bagi kami. Ceritakan alat mana yang Anda pakai (misalnya QR WiFi atau QR WhatsApp), jenis ponsel yang gagal dan yang berhasil memindainya, serta contoh isi yang Anda masukkan — tetapi samarkan dulu data aslinya, misalnya ganti kata sandi WiFi dengan kata contoh dan ubah beberapa angka nomor rekening. Dengan keterangan seperti itu, biasanya kami bisa menebak penyebabnya: isi terlalu padat, kontras warna rendah, ukuran cetak terlalu kecil, atau hal lain yang bisa kami perbaiki di alatnya.</li>
+        <li><strong>Saran alat QR baru.</strong> Jenis QR apa yang dibutuhkan usaha Anda tetapi belum ada di halaman <a href={u('/generator/')}>Generator QR</a>? Ceritakan kebutuhan nyatanya — untuk usaha apa dan dipakai di mana — karena saran yang disertai cerita pemakaian jauh lebih mudah kami prioritaskan daripada sekadar nama alat.</li>
+        <li><strong>Koreksi panduan dan halaman situs.</strong> Menemukan langkah yang sudah berubah, tautan yang mati, atau penjelasan yang membingungkan di <a href={u('/blog/')}>Blog &amp; Panduan</a> atau halaman lain? Kirimkan alamat halamannya dan bagian mana yang keliru, dan kami akan memperbaikinya.</li>
+        <li><strong>Pertanyaan seputar pemakaian.</strong> Bila petunjuk di halaman alat belum menjawab kebingungan Anda — misalnya soal ukuran stiker yang aman untuk dicetak atau cara menempelkan logo tanpa merusak keterbacaan QR — jangan ragu bertanya.</li>
+        <li><strong>Kerja sama.</strong> Usulan kerja sama yang relevan dengan usaha kecil dan penggunaan QR yang jujur juga boleh disampaikan lewat email yang sama, dengan penjelasan singkat mengenai bentuk kerja samanya.</li>
+      </ul>
+
+      <h2>Satu peringatan penting: jangan kirim data sensitif lewat email</h2>
+      <div class="kotak-info"><p>Jangan pernah mengirimkan kata sandi WiFi asli Anda, PIN, kata sandi akun apa pun, kode OTP, foto KTP, atau data sensitif lain lewat email kepada kami — kami tidak pernah membutuhkannya untuk membantu Anda. Untuk melaporkan kendala, contoh isi yang sudah disamarkan selalu cukup. Bila Anda terlanjur mengirimkannya, segera ganti kata sandi atau data yang bersangkutan demi keamanan Anda sendiri.</p></div>
+      <p>Peringatan yang sama berlaku untuk pihak mana pun yang mengaku sebagai QRUsaha lewat saluran lain. QRUsaha tidak memiliki layanan pelanggan lewat chat yang meminta kata sandi, PIN, atau kode OTP, dan kami tidak akan pernah meminta data semacam itu. Satu-satunya alamat email resmi kami adalah qrusaha@gmail.com.</p>
+
+      <h2>Kapan email Anda dibalas?</h2>
+      <p>QRUsaha dikelola kecil-kecilan, bukan oleh tim layanan pelanggan yang berjaga sepanjang hari. Email dibaca dan dibalas secara bertahap pada hari kerja, umumnya dalam beberapa hari, bisa lebih lama pada masa ramai atau libur. Kami membaca semua pesan yang masuk, tetapi mohon maklum bila balasan untuk saran dan pertanyaan umum lebih singkat daripada balasan untuk laporan kendala yang mendesak. Agar email Anda cepat terbantu, pakailah judul yang menggambarkan isinya — contohnya "QR WiFi gagal dipindai di Android" jauh lebih membantu daripada "Halo" — dan sertakan keterangan jenis alat serta perangkat sejak pesan pertama, agar kami tidak perlu bolak-balik bertanya.</p>
+      <p>Sebelum menulis email, ada baiknya Anda melihat-lihat dulu halaman <a href={u('/generator/')}>Generator QR</a> untuk mencoba alatnya langsung, membaca panduan praktis di <a href={u('/blog/')}>Blog &amp; Panduan</a>, atau memahami latar belakang dan batasan layanan ini di halaman <a href={u('/tentang/')}>Tentang QRUsaha</a> dan <a href={u('/disclaimer/')}>Disclaimer</a>. Banyak pertanyaan umum — termasuk kenapa QR pembayaran di sini bukan QRIS dan kenapa data Anda tidak diunggah — sudah terjawab di halaman-halaman tersebut. Sisanya, qrusaha@gmail.com selalu terbuka. Terima kasih sudah menulis, dan terima kasih sudah memakai QRUsaha untuk usaha Anda.</p>
+    </div>
+  </div>
+</Layout>

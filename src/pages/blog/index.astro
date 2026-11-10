@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Toko.astro';
+import { ARTIKEL } from '../../lib/blog.js';
+import { u } from '../../lib/base.js';
+---
+
+<Layout
+  title="Blog & Panduan QR untuk Usaha Kecil — QRUsaha"
+  description="Panduan praktis QR untuk UMKM Indonesia: QR WhatsApp, QR WiFi, menu digital, ulasan Google, cara memasang QR yang benar, dan beda QRIS dengan QR biasa."
+>
+  <div class="bungkus">
+    <div class="pembuka artikel">
+      <span class="label-seksi">Blog QRUsaha</span>
+      <h1>Panduan QR untuk Usaha Kecil</h1>
+      <p>Membuat QR hanya butuh semenit; membuatnya <em>benar</em> — terbaca dari jarak yang tepat, berisi tautan yang tidak akan berubah bulan depan, dan dipasang dengan cara yang sopan — adalah hal yang membedakan stiker yang bekerja dari stiker yang sekadar menempel. Blog ini berisi panduan lapangan dari hal-hal kecil seperti itu, ditulis untuk pemilik warung, kafe, laundry, salon, bengkel, dan toko yang ingin mempraktikkannya hari ini juga, tanpa latar belakang teknis.</p>
+      <p>Tiga artikel pertama adalah fondasi: cara membuat QR WhatsApp yang membuka chat dengan pesan siap kirim, cara mengganti pertanyaan "sandi WiFi-nya apa" menjadi satu pindaian, dan aturan ukuran-kontras-jarak yang menentukan QR Anda terbaca atau tidak. Setelah itu kami membahas menu digital untuk kafe kecil, cara resmi mendapatkan tautan ulasan Google (tanpa membeli ulasan palsu), dan — yang paling sering disalahpahami — perbedaan QRIS dengan QR biasa, termasuk kenapa situs ini dengan sengaja tidak membuat QRIS. Semua panduan merujuk kembali ke generator gratisnya, jadi Anda bisa membaca sambil langsung mencoba.</p>
+    </div>
+
+    <ul class="daftar-artikel">
+      {ARTIKEL.map((a) => (
+        <li>
+          <h3><a href={u(`/blog/${a.slug}/`)}>{a.judul}</a></h3>
+          <p class="tanggal">{a.tanggalTampil}</p>
+          <p>{a.ringkasan}</p>
+        </li>
+      ))}
+    </ul>
+  </div>
+</Layout>

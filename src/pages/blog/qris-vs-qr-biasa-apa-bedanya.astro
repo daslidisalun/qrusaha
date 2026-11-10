@@ -1,0 +1,123 @@
+---
+import Layout from '../../layouts/Toko.astro';
+import { u } from '../../lib/base.js';
+---
+<Layout title="QRIS vs QR Biasa: Apa Bedanya, dan Mana yang Anda Butuhkan? — Blog QRUsaha" description="Penjelasan jujur perbedaan QRIS resmi dari bank dan e-wallet untuk menerima pembayaran dengan QR biasa berisi tautan atau teks, plus panduan memilih dan waspada penipuan stiker.">
+  <div class="bungkus">
+    <article class="artikel" style="padding-top:30px">
+      <p class="kecil"><a href={u('/blog/')}>← Semua artikel</a> · 9 November 2026</p>
+      <h1>QRIS vs QR Biasa: Apa Bedanya, dan Mana yang Anda Butuhkan?</h1>
+
+      <p>Di kasir sebuah warung kopi, dua kotak hitam-putih berdampingan. Yang satu bertuliskan QRIS dengan logo merah-putih dan nama toko di atasnya, yang satu lagi QR kecil bertuliskan “Pindai untuk Lihat Menu”. Keduanya sama-sama dipindai dengan kamera HP, tetapi pekerjaan mereka sangat berbeda: yang pertama memindahkan uang dari rekening pelanggan ke rekening usaha Anda, yang kedua hanya membuka sebuah halaman menu. Bingung membedakan keduanya adalah hal yang wajar — dan memahami bedanya penting, supaya Anda tidak salah berharap dan tidak mudah tertipu.</p>
+
+      <p>Artikel ini menjelaskannya dengan jujur dan tanpa jargon berlebihan. Satu hal kami tegaskan sejak awal: <strong>situs ini tidak membuat QRIS dan tidak bisa menerbitkan QRIS.</strong> Generator di QRUsaha membuat QR biasa yang berisi tautan, teks, kontak, atau informasi jaringan WiFi. QRIS hanya diterbitkan oleh bank, e-wallet, dan penyelenggara pembayaran resmi yang berizin dan mengikuti standar Bank Indonesia. Kalau ada situs acak yang mengaku bisa “membuatkan QRIS instan tanpa daftar”, justru itu yang harus Anda curigai.</p>
+
+      <h2>Apa Itu QR Biasa?</h2>
+
+      <p>QR biasa — sering disebut QR code statis — adalah gambar berkode yang isinya Anda tentukan sendiri. Isinya bisa berupa:</p>
+
+      <ul>
+        <li>Sebuah tautan, misalnya ke menu digital, katalog, Instagram usaha, atau formulir ulasan Google.</li>
+        <li>Teks bebas, misalnya nomor rekening yang ditampilkan sebagai teks, petunjuk parkir, atau kode promo yang dibaca manusia.</li>
+        <li>Informasi WiFi, agar HP pelanggan terhubung ke jaringan tamu tanpa mengetik kata sandi.</li>
+        <li>Kontak WhatsApp dengan pesan siap kirim, atau kartu nama digital berisi nama, nomor HP, dan alamat usaha.</li>
+        <li>Informasi pembayaran dalam bentuk teks yang dibaca dan disalin pelanggan, misalnya nomor e-wallet atau nomor rekening yang kemudian pelanggan transfer secara manual lewat aplikasinya sendiri.</li>
+      </ul>
+
+      <p>Perhatikan contoh terakhir itu baik-baik. QR berisi teks nomor rekening memang berkaitan dengan pembayaran, tetapi QR itu sendiri tidak memproses pembayaran apa pun. Pelanggan tetap harus membuka aplikasi banknya, mengetik nominal, dan mentransfer secara manual. QR biasa pada dasarnya hanyalah cara cepat menyampaikan informasi tanpa mengetik — seperti papan pengumuman kecil yang bisa dibaca kamera. Ia tidak terhubung ke rekening Anda, tidak memverifikasi uang masuk, dan tidak mengenakan biaya apa pun selain biaya mencetaknya.</p>
+
+      <p>Membuatnya pun bebas: Anda bisa membuatnya sendiri sekarang juga lewat <a href={u('/generator/tautan/')}>generator QR tautan</a> di situs ini, tanpa pendaftaran, tanpa persetujuan siapa pun, karena memang tidak ada uang yang berpindah di dalam QR itu. Kekuatannya ada di kesederhanaan dan kecepatannya. Kelemahannya juga sama: ia tidak bisa melakukan lebih dari yang tertulis di dalamnya.</p>
+
+      <h2>Apa Itu QRIS?</h2>
+
+      <p>QRIS — dibaca “kris”, singkatan dari Quick Response Code Indonesian Standard — adalah standar kode QR pembayaran yang ditetapkan Bank Indonesia. Tujuannya agar satu kode QR di toko bisa dibayar dari aplikasi apa pun: mobile banking berbagai bank, dan berbagai e-wallet, tanpa toko harus menyediakan belasan kode berbeda untuk tiap aplikasi. Satu QRIS untuk semua aplikasi pembayaran, itulah gagasan besarnya.</p>
+
+      <p>Karena QRIS memindahkan uang sungguhan, ia tidak bisa dibuat sendiri. QRIS diterbitkan untuk Anda oleh bank atau penyelenggara pembayaran berizin — misalnya lewat aplikasi merchant dari bank tempat Anda memiliki rekening usaha, atau lewat program merchant dari e-wallet dan penyedia layanan pembayaran resmi. Saat mendaftar, identitas dan usaha Anda diverifikasi, dan QRIS yang diterbitkan terhubung ke akun merchant Anda. Nama usaha yang terdaftar akan muncul di layar HP pelanggan sebelum mereka membayar, dan uang hasil pembayaran masuk ke akun atau rekening merchant Anda sesuai ketentuan penyelenggaranya, umumnya setelah proses penyelesaian (settlement) dalam waktu tertentu.</p>
+
+      <h3>Biaya QRIS: Mengenal MDR</h3>
+
+      <p>Menerima QRIS tidak sepenuhnya gratis bagi pedagang. Ada biaya layanan yang disebut MDR (Merchant Discount Rate), yaitu potongan persentase kecil dari setiap transaksi yang berhasil, yang dibebankan kepada merchant, bukan ditambahkan ke harga yang dibayar pelanggan. Besaran MDR diatur melalui kebijakan Bank Indonesia dan ketentuan penyelenggara, dan kategorinya dibedakan menurut jenis dan skala usaha.</p>
+
+      <p>Untuk pedagang usaha mikro, pemerintah dan Bank Indonesia selama ini memberikan kebijakan khusus agar beban MDR sangat ringan — pernah ada kebijakan tarif 0% untuk usaha mikro pada rentang nominal transaksi tertentu, dan tarif khusus yang lebih rendah dibanding kategori usaha yang lebih besar untuk transaksi di atasnya. Angka pastinya bisa berubah mengikuti kebijakan terbaru, jadi jangan berpegang hanya pada angka dari tangkapan layar lama atau cerita di media sosial. Cara paling aman: saat mendaftar, baca tabel biaya resmi di aplikasi atau dokumen penyelenggara yang Anda pilih, tanyakan berapa MDR untuk kategori usaha Anda dan bagaimana skema penyelesaian dananya, lalu simpan informasinya.</p>
+
+      <p>Bagi kebanyakan warung dan toko kecil, potongan kecil per transaksi itu tertutup oleh manfaatnya: tidak perlu menyediakan uang kembalian terus-menerus, risiko uang palsu hilang, semua transaksi tercatat rapi, dan pelanggan yang tidak membawa uang tunai tetap bisa membeli. Tetapi tetap hitung dengan mata terbuka, terutama kalau margin usaha Anda sangat tipis.</p>
+
+      <h2>Tabel Perbandingan: QRIS vs QR Biasa</h2>
+
+      <table>
+        <thead>
+          <tr><th>Hal yang dibandingkan</th><th>QRIS</th><th>QR Biasa (dari situs ini)</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Fungsi utama</td><td>Menerima pembayaran dari pelanggan</td><td>Menyampaikan informasi: tautan, teks, WiFi, kontak</td></tr>
+          <tr><td>Bisa menerima uang langsung?</td><td>Ya, uang masuk ke akun merchant Anda</td><td>Tidak. Paling jauh menampilkan info yang disalin manual oleh pelanggan</td></tr>
+          <tr><td>Siapa yang menerbitkan</td><td>Bank, e-wallet, atau penyelenggara pembayaran berizin mengikuti standar Bank Indonesia</td><td>Anda sendiri, lewat generator QR gratis</td></tr>
+          <tr><td>Perlu pendaftaran dan verifikasi?</td><td>Ya, sebagai merchant, dengan data identitas dan usaha</td><td>Tidak perlu daftar untuk isi sederhana seperti tautan atau teks</td></tr>
+          <tr><td>Biaya per transaksi</td><td>Ada MDR (potongan persentase) untuk merchant, dengan kebijakan khusus untuk usaha mikro</td><td>Tidak ada biaya per transaksi; hanya biaya cetak bila dicetak</td></tr>
+          <tr><td>Nama yang muncul saat dipindai</td><td>Nama usaha terdaftar muncul di aplikasi pembayaran pelanggan</td><td>Muncul isi tautan atau teks apa adanya di browser/HP pelanggan</td></tr>
+          <tr><td>Contoh pemakaian</td><td>Stiker QRIS resmi di kasir untuk membayar makanan, jasa, dan barang</td><td>QR menu di meja, QR WiFi, QR ulasan Google, QR WhatsApp, QR katalog</td></tr>
+          <tr><td>Kalau salah isi</td><td>Harus mengurus perubahan lewat penyelenggara penerbitnya</td><td>Tinggal buat QR baru; untuk tautan, ubah isi di balik tautannya</td></tr>
+        </tbody>
+      </table>
+
+      <p>Dilihat dari tabel itu, QRIS dan QR biasa sebenarnya bukan saingan. Keduanya adalah alat berbeda yang sangat sering dipakai berdampingan di usaha yang sama, dan justru saling melengkapi.</p>
+
+      <h2>Cara Mendaftar QRIS Secara Resmi</h2>
+
+      <p>Kalau usaha Anda belum punya QRIS dan ingin menerimanya, jalurnya selalu lewat penyelenggara resmi. Secara garis besar langkahnya seperti ini:</p>
+
+      <ol class="langkah">
+        <li>Pilih penyelenggara yang resmi dan berizin: bank tempat Anda memiliki rekening, aplikasi e-wallet yang memiliki program merchant, atau penyedia layanan pembayaran yang jelas legalitasnya. Hindari perantara tidak dikenal yang meminta biaya besar di muka.</li>
+        <li>Siapkan dokumen yang umumnya diminta: KTP pemilik, nomor HP dan email aktif, data usaha (nama, alamat, jenis usaha), serta nomor rekening untuk penerimaan dana. Usaha mikro perorangan biasanya bisa mendaftar tanpa harus berbadan usaha besar; syarat persisnya mengikuti penyelenggara.</li>
+        <li>Daftar lewat aplikasi atau kanal resmi penyelenggara tersebut — misalnya fitur merchant di aplikasi bank atau e-wallet — dan isi data dengan benar. Nama usaha yang Anda daftarkan di sinilah yang akan dilihat pelanggan di layar pembayaran, jadi tulislah nama yang sama dengan papan nama toko Anda.</li>
+        <li>Selesaikan proses verifikasi dan tunggu QRIS merchant Anda diterbitkan. Setelah aktif, Anda menerima kode QRIS untuk dicetak atau ditampilkan, beserta akses untuk memantau transaksi.</li>
+        <li>Uji dengan transaksi kecil dari HP Anda sendiri atau keluarga, periksa nama usaha yang muncul dan apakah dana tercatat masuk, sebelum memasangnya untuk pelanggan umum.</li>
+        <li>Pasang QRIS cetakan resmi dari penyelenggara di kasir, dan jangan mengedit, memotong logo, atau menggabungkan gambarnya dengan QR lain.</li>
+      </ol>
+
+      <div class="kotak-info"><p><strong>Tidak ada jalan pintas resmi.</strong> QRIS yang sah selalu lahir dari pendaftaran merchant di penyelenggara berizin. Karena itu generator gratis di internet — termasuk situs ini — tidak akan pernah bisa menghasilkan QRIS asli. Yang bisa kami bantu adalah QR pendukungnya, misalnya QR menu, QR ulasan, dan QR WiFi yang dipasang di sebelah QRIS Anda. Buat yang pendukung itu lewat <a href={u('/generator/')}>semua generator QR</a> di halaman utama.</p></div>
+
+      <h2>Waspada Penipuan: Stiker QRIS yang Ditimpa dan Dipalsukan</h2>
+
+      <p>Karena QRIS bernilai uang, penipu mengincarnya. Modus yang paling sering diberitakan sangat sederhana dan kejam: penipu menempelkan stiker QRIS miliknya di atas stiker QRIS asli milik toko, warung, atau bahkan kotak amal di tempat ibadah. Pelanggan memindai tanpa curiga, membayar seperti biasa, dan uangnya masuk ke akun penipu. Pemilik usaha baru sadar setelah merasa ramai pembeli tetapi saldo tidak bertambah.</p>
+
+      <p>Anda bisa menurunkan risiko ini jauh dengan kebiasaan-kebiasaan kecil berikut:</p>
+
+      <div class="kotak-waspada"><p><strong>Selalu periksa nama di layar sebelum membayar — dan ajarkan ini ke pelanggan Anda.</strong> Sebelum pelanggan menekan tombol bayar, aplikasi pembayaran selalu menampilkan nama merchant penerima. Nama itu harus sama dengan nama usaha Anda yang terdaftar. Kalau yang muncul nama orang atau nama usaha asing, pembayaran harus dibatalkan. Sebagai pemilik, tempel tulisan kecil di dekat QRIS: “Pastikan nama penerima di layar: [Nama Usaha Anda].”</p></div>
+
+      <ul>
+        <li><strong>Periksa kondisi stiker setiap hari.</strong> Jadikan bagian dari rutinitas membuka dan menutup toko: raba dan lihat stiker QRIS Anda. Apakah ada lapisan stiker tambahan, tepi terkelupas, atau stiker yang terasa lebih tebal dari biasanya? Stiker QRIS di tempat umum seperti kotak amal dan parkir sebaiknya diperiksa lebih sering lagi.</li>
+        <li><strong>Tempatkan QRIS dalam jangkauan pantauan.</strong> Di dekat kasir yang dijaga jauh lebih aman daripada di titik sepi yang tidak pernah dilihat karyawan. Untuk pembayaran di meja, sebagian usaha memilih menunjukkan QRIS dari perangkat kasir atau meminta pelanggan membayar di kasir.</li>
+        <li><strong>Cocokkan transaksi secara berkala.</strong> Periksa riwayat transaksi dan notifikasi dana masuk di aplikasi merchant Anda setiap hari. Kejanggalan — ramai tetapi tidak ada transaksi tercatat — harus langsung diselidiki hari itu juga, bukan minggu depan.</li>
+        <li><strong>Curigai QR sumbangan atau pembayaran yang tiba-tiba berubah bentuk.</strong> Banyak kasus penipuan kotak amal terbongkar karena pengurus rutin memindai QR-nya sendiri dan memeriksa nama penerimanya. Lakukan uji pindai berkala untuk QRIS Anda sendiri, cukup sampai melihat nama di layar, tanpa harus menyelesaikan pembayaran.</li>
+        <li><strong>Laporkan bila menemukan penempelan palsu.</strong> Lepas stiker asing itu, dokumentasikan dengan foto, dan laporkan ke penyelenggara QRIS Anda serta pihak berwenang setempat agar usaha lain di sekitar Anda bisa ikut waspada.</li>
+      </ul>
+
+      <p>Penipuan yang sama dalam versi lebih ringan juga bisa menimpa QR biasa: seseorang menimpa QR menu atau QR WiFi Anda dengan QR menuju situs palsu. Karena itu kebiasaan memeriksa semua stiker QR di tempat usaha — bukan hanya QRIS — sekaligus adalah kebiasaan yang sehat.</p>
+
+      <h2>Panduan Memilih: Mana yang Anda Butuhkan?</h2>
+
+      <p>Jawabannya untuk kebanyakan usaha kecil adalah: keduanya, untuk pekerjaan yang berbeda.</p>
+
+      <ul>
+        <li><strong>Anda butuh QRIS kalau</strong> pelanggan sering bertanya “bisa bayar pakai QR tidak?”, Anda ingin mengurangi urusan uang kembalian dan uang palsu, atau Anda ingin catatan penjualan yang otomatis rapi. Daftarlah secara resmi lewat bank atau e-wallet merchant, pelajari MDR untuk kategori usaha Anda, dan jaga stikernya.</li>
+        <li><strong>Anda butuh QR biasa kalau</strong> yang ingin Anda sampaikan adalah informasi: menu dan daftar harga yang bisa diperbarui, kata sandi WiFi untuk tamu, tautan ulasan Google, nomor WhatsApp untuk pemesanan, katalog di Instagram, atau alamat dan petunjuk lokasi. Semua ini bisa Anda buat sendiri gratis dalam hitungan menit, misalnya lewat <a href={u('/generator/wifi/')}>generator QR WiFi</a> atau generator ulasan di situs ini.</li>
+        <li><strong>Anda butuh keduanya kalau</strong> usaha Anda seperti kebanyakan kafe, warung, salon, laundry, dan bengkel modern: QRIS resmi dari penyelenggara terpasang di kasir untuk uang masuk, dan di sekelilingnya ada QR-QR biasa buatan sendiri yang membuat pelayanan lebih cepat dan pelanggan lebih senang.</li>
+      </ul>
+
+      <p>Contoh susunan nyata di sebuah warung makan di Semarang: di kasir ada satu QRIS resmi dari bank untuk pembayaran, dijaga dan diperiksa tiap pagi. Di setiap meja ada tent card berisi dua QR biasa — satu untuk menu digital yang harganya bisa diperbarui tanpa cetak ulang, satu untuk WiFi tamu. Di dekat pintu keluar ada satu QR biasa lagi untuk ulasan Google. Tidak ada satu pun dari QR biasa itu yang menerima uang, dan tidak ada satu pun yang berpura-pura menjadi QRIS. Masing-masing bekerja sesuai tugasnya, dan pelanggan memahami semuanya tanpa perlu dijelaskan panjang lebar.</p>
+
+      <p>Kalau Anda mengingat satu kalimat saja dari artikel ini, ingatlah ini: kotak hitam-putihnya memang mirip, tetapi QRIS adalah rekening yang bisa menerima uang dan hanya lahir dari pendaftaran resmi, sedangkan QR biasa adalah papan informasi yang bisa dibaca kamera dan bebas Anda buat sendiri. Dengan pemahaman itu, Anda tidak akan tertukar, tidak akan salah janji kepada pelanggan, dan tidak mudah ditipu stiker palsu.</p>
+
+      <div class="faq">
+        <details><summary>Apakah QR yang dibuat di situs ini bisa dipakai menerima pembayaran QRIS?</summary><p>Tidak bisa. QR dari situs ini berisi tautan, teks, WiFi, kontak, atau informasi sejenis yang Anda tulis sendiri. Ia tidak terhubung ke rekening mana pun dan tidak memproses pembayaran. Untuk menerima pembayaran QRIS, daftarkan usaha Anda sebagai merchant lewat bank, e-wallet, atau penyelenggara pembayaran resmi berizin.</p></details>
+        <details><summary>Apakah mendaftar QRIS harus punya badan usaha atau PT?</summary><p>Umumnya tidak. Usaha mikro dan perorangan biasanya bisa mendaftar sebagai merchant dengan KTP dan data usaha sederhana, tetapi syarat persisnya mengikuti masing-masing penyelenggara. Periksa syarat terbaru langsung di aplikasi atau kanal resmi penyelenggara yang Anda pilih.</p></details>
+        <details><summary>Berapa biaya menerima pembayaran QRIS untuk warung kecil?</summary><p>Ada biaya layanan per transaksi untuk merchant yang disebut MDR, berupa potongan persentase dari nilai transaksi. Untuk usaha mikro ada kebijakan khusus dari Bank Indonesia agar tarifnya sangat ringan, termasuk skema tarif khusus untuk rentang transaksi tertentu yang pernah dan dapat berubah mengikuti kebijakan terbaru. Angka yang berlaku untuk Anda adalah angka resmi dari penyelenggara tempat Anda mendaftar — baca tabel biayanya saat pendaftaran.</p></details>
+        <details><summary>Bagaimana cara mengetahui stiker QRIS saya ditimpa penipu?</summary><p>Periksa fisik stiker setiap hari, lakukan uji pindai dan lihat nama penerima yang muncul di layar (harus nama usaha Anda), serta cocokkan riwayat transaksi di aplikasi merchant dengan keramaian toko. Nama asing di layar, stiker berlapis, atau transaksi yang hilang adalah tanda bahaya yang harus segera ditindaklanjuti.</p></details>
+        <details><summary>Bolehkah memasang QRIS dan QR menu berdampingan?</summary><p>Boleh dan sangat dianjurkan, asalkan tampilannya tidak membingungkan. Beri label besar dan jelas pada masing-masing: “BAYAR DI SINI (QRIS)” untuk yang resmi dari penyelenggara, dan “LIHAT MENU” untuk QR biasa Anda. Jangan pernah menggabungkan atau mengedit gambar QRIS resmi.</p></details>
+      </div>
+
+      <p style="margin-top:2rem"><a href={u('/generator/')}>→ Coba generator QR gratisnya</a></p>
+    </article>
+  </div>
+</Layout>

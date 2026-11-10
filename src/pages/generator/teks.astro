@@ -1,0 +1,51 @@
+---
+import Layout from '../../layouts/Toko.astro';
+import PanelQR from '../../components/PanelQR.astro';
+import Editorial from '../../konten/ed-teks.astro';
+---
+
+<Layout
+  title="Generator QR Teks Bebas — QRUsaha"
+  description="Ubah teks apa pun menjadi QR gratis: pengumuman, tata tertib, petunjuk antrean, jam buka. Maksimal ±800 karakter agar tetap mudah dipindai."
+>
+  <div class="bungkus">
+    <div class="pembuka">
+      <span class="label-seksi">Generator QR</span>
+      <h1>QR Teks Bebas</h1>
+      <p style="max-width:720px">Generator paling sederhana di QRUsaha: ketik teks apa pun, teks itu tertanam persis di dalam QR. Saat dipindai, teks tampil di layar — tanpa internet, tanpa membuka situs apa pun. Cocok untuk pengumuman jam buka, tata tertib tempat, petunjuk antrean, instruksi parkir, atau label sederhana. Jaga teks tetap singkat: makin panjang teksnya, makin rapat titik QR-nya dan makin sulit dipindai.</p>
+    </div>
+
+    <div class="panel-qr" data-panel>
+      <form class="kartu-form" autocomplete="off">
+        <div class="kolom">
+          <label for="teks-isi">Isi teks</label>
+          <textarea id="teks-isi" data-bidang="teks" maxlength="800" rows="7">JAM BUKA LAUNDRY BERKAH
+Senin–Sabtu: 07.00–21.00
+Minggu: 08.00–17.00
+Cuci selesai 1 hari. Pengambilan menunjukkan nota.</textarea>
+          <p class="petunjuk"><span data-peran="hitung">0</span>/800 karakter. Baris baru boleh dipakai. Huruf kapital di awal baris membantu keterbacaan di layar HP.</p>
+        </div>
+      </form>
+      <PanelQR labelAwal="Pindai untuk Info" />
+    </div>
+
+    <div class="artikel">
+      <Editorial />
+    </div>
+  </div>
+
+  <script>
+    import { pasangPanel } from '../../lib/qr-ui.js';
+
+    const panel = document.querySelector('[data-panel]');
+    const teks = panel.querySelector('[data-bidang="teks"]');
+    const hitung = panel.querySelector('[data-peran="hitung"]');
+    const segarkanHitung = () => (hitung.textContent = String(teks.value.length));
+    teks.addEventListener('input', segarkanHitung);
+    segarkanHitung();
+    pasangPanel(panel, {
+      buatMuatan: () => teks.value.trim(),
+      namaBerkas: 'qr-teks',
+    });
+  </script>
+</Layout>

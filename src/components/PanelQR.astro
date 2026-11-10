@@ -1,0 +1,74 @@
+---
+// PanelQR — kolom keluaran bersama semua generator: pratinjau stiker,
+// kustomisasi (warna, level, ukuran, logo), tombol unduh, dan struk isi QR.
+// Formulir spesifik tiap generator ditulis di halaman masing-masing;
+// keduanya dibungkus satu elemen .panel-qr dan dihubungkan oleh
+// pasangPanel() dari src/lib/qr-ui.js.
+import { u } from '../lib/base.js';
+
+interface Props {
+  labelAwal?: string;
+  dasarStiker?: string;
+}
+const { labelAwal = '', dasarStiker = u('/stiker/') } = Astro.props;
+---
+
+<div class="stiker-bungkus">
+  <div class="stiker-keluar">
+    <span class="gunting">✂ gunting di garis putus-putus</span>
+    <div class="wadah-qr" data-peran="wadah-qr"></div>
+    <p class="label-bawah" data-peran="label-bawah">{labelAwal}</p>
+    <div class="peringatan" data-peran="peringatan" role="alert"></div>
+  </div>
+
+  <div class="kartu-form" style="margin-top:16px">
+    <div class="kolom">
+      <label for="label-teks">Label di bawah QR</label>
+      <input type="text" id="label-teks" data-peran="label-teks" value={labelAwal} maxlength="60" placeholder="cth: Warung Kopi Mbok Sari" />
+      <p class="petunjuk">Muncul sebagai tulisan di bawah QR pada pratinjau &amp; lembar stiker.</p>
+    </div>
+    <div class="baris-dua">
+      <div class="kolom">
+        <label for="warna-gelap">Warna modul (titik QR)</label>
+        <input type="color" id="warna-gelap" data-peran="warna-gelap" value="#22303a" />
+      </div>
+      <div class="kolom">
+        <label for="warna-terang">Warna latar</label>
+        <input type="color" id="warna-terang" data-peran="warna-terang" value="#ffffff" />
+      </div>
+    </div>
+    <div class="baris-dua">
+      <div class="kolom">
+        <label for="level">Koreksi kesalahan</label>
+        <select id="level" data-peran="level">
+          <option value="L">L — hemat tempat (±7%)</option>
+          <option value="M" selected>M — seimbang (±15%)</option>
+          <option value="Q">Q — lebih awet (±25%)</option>
+          <option value="H">H — paling awet (±30%)</option>
+        </select>
+        <p class="petunjuk">Makin tinggi, makin tahan rusak/tertutup — tapi titiknya makin rapat.</p>
+      </div>
+      <div class="kolom">
+        <label for="ukuran">Ukuran unduhan PNG</label>
+        <select id="ukuran" data-peran="ukuran">
+          <option value="512">512 px — layar &amp; chat</option>
+          <option value="1024" selected>1024 px — cetak kecil</option>
+          <option value="2048">2048 px — cetak besar</option>
+        </select>
+      </div>
+    </div>
+    <div class="kolom">
+      <label for="logo">Logo di tengah QR (opsional)</label>
+      <input type="file" id="logo" data-peran="logo" accept="image/*" />
+      <p class="petunjuk">Logo hanya ditempel pada unduhan PNG, dengan bantalan putih. Saat logo aktif, koreksi kesalahan otomatis naik ke H. Ukuran logo dibatasi ±22% agar QR tetap terbaca — selalu uji pindai sebelum mencetak banyak.</p>
+    </div>
+    <div class="aksi-unduh">
+      <button type="button" class="tombol" data-peran="unduh-png">⬇ Unduh PNG</button>
+      <button type="button" class="tombol teal" data-peran="unduh-svg">⬇ Unduh SVG</button>
+      <a class="tombol kuning" data-peran="tautan-stiker" href={dasarStiker}>Buat Lembar Stiker</a>
+    </div>
+    <div class="struk" aria-live="polite"><div class="struk-judul">— ISI QR ANDA —</div><span data-peran="muatan">—</span>
+      <div style="border-top:1.5px dashed #9db3bd;margin-top:8px;padding-top:8px">Isi ini persis yang dibaca kamera pelanggan. Periksa lagi sebelum mencetak — QR yang sudah tercetak tidak bisa diubah isinya.</div>
+    </div>
+  </div>
+</div>

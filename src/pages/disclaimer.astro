@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Toko.astro';
+import { u } from '../lib/base.js';
+---
+<Layout title="Disclaimer — QRUsaha" description="Disclaimer QRUsaha: alat bantu gratis, isi QR adalah tanggung jawab pembuatnya. QRUsaha tidak menerbitkan QRIS dan tidak berafiliasi dengan Bank Indonesia, bank, e-wallet, WhatsApp, atau Google.">
+  <div class="bungkus">
+    <div class="pembuka artikel">
+      <span class="label-seksi">QRUsaha</span>
+      <h1>Disclaimer</h1>
+      <p>Halaman ini menjelaskan batasan tanggung jawab QRUsaha sebagai alat bantu gratis untuk membuat kode QR. Dengan memakai situs ini, Anda dianggap memahami hal-hal di bawah ini. Latar belakang layanan ada di <a href={u('/tentang/')}>Tentang QRUsaha</a>, dan perlakuan data Anda diatur di <a href={u('/privasi/')}>Kebijakan Privasi</a>.</p>
+
+      <h2>Alat bantu gratis — isi QR sepenuhnya tanggung jawab pembuatnya</h2>
+      <p>QRUsaha adalah alat bantu: situs ini mengubah teks dan informasi yang Anda ketik menjadi pola kode QR, persis sebagaimana Anda memasukkannya. Situs ini tidak menulis isi atas nama Anda, tidak memeriksa kebenaran isi tersebut, dan — karena semua proses berjalan di browser Anda — secara teknis bahkan tidak mengetahui isi QR yang Anda buat. Karena itu, isi setiap QR sepenuhnya adalah tanggung jawab Anda sebagai pembuatnya.</p>
+      <p>Tanggung jawab itu mencakup hal-hal yang tampak sepele tetapi berdampak nyata bagi usaha Anda, misalnya:</p>
+      <ul class="daftar-cek">
+        <li>Nomor WhatsApp yang tertukar satu angka akan mengarahkan pelanggan ke orang lain atau ke nomor yang tidak terdaftar.</li>
+        <li>Nama jaringan dan kata sandi WiFi yang salah ketik akan membuat tamu gagal terhubung, berkali-kali, sampai ada yang menyadarinya.</li>
+        <li>Nomor rekening atau dompet digital yang keliru dapat membuat pembayaran pelanggan nyasar ke rekening orang lain.</li>
+        <li>Tautan yang salah atau kedaluwarsa akan membuat QR terasa "rusak" di mata pelanggan.</li>
+      </ul>
+      <p>Anjuran kami sederhana: <strong>periksa kembali isian Anda, lalu pindai uji QR hasil unduhan dengan ponsel Anda sendiri sebelum mencetak, menempel, atau membagikannya.</strong> Satu kali uji pindai jauh lebih murah daripada mencetak ulang stiker.</p>
+
+      <h2>QRUsaha tidak menerbitkan QRIS dan tidak berafiliasi dengan lembaga mana pun</h2>
+      <p>Bagian ini penting dan kami tegaskan tanpa kata-kata bersayap: <strong>QRUsaha tidak menerbitkan QRIS.</strong> QRIS adalah standar pembayaran resmi yang pengelolaannya berada di bawah Bank Indonesia, dan kode QRIS yang sah hanya diterbitkan untuk pedagang melalui bank atau penyelenggara jasa pembayaran berizin yang bekerja sama dengan pedagang tersebut. Tidak ada situs generator gratis — termasuk situs ini — yang dapat membuatkan QRIS resmi untuk usaha Anda. Bila Anda ingin menerima pembayaran QRIS, daftarkan usaha Anda melalui bank atau aplikasi penyedia QRIS resmi.</p>
+      <p>Alat yang tersedia di QRUsaha adalah QR Info Pembayaran: sebuah QR berisi teks nomor rekening, nomor dompet digital, dan nama pemiliknya, yang setelah dipindai dapat <em>disalin secara manual</em> oleh pelanggan untuk kemudian ditempelkan ke aplikasi perbankan atau dompet digital mereka. Alat ini membantu mengurangi salah ketik nomor, tetapi ia bukan QRIS, tidak memproses pembayaran, tidak memotong saldo siapa pun, dan tidak memberikan konfirmasi pembayaran otomatis. Jangan beri label "QRIS" pada cetakannya, agar pelanggan Anda tidak salah paham.</p>
+      <p>QRUsaha juga tidak berafiliasi, tidak disponsori, dan tidak didukung oleh Bank Indonesia, bank mana pun, penyedia dompet digital mana pun, WhatsApp, Meta, maupun Google. Nama-nama layanan, bank, dan produk yang disebut di situs ini — misalnya WhatsApp, Google, dan nama bank atau dompet digital pada formulir info pembayaran — adalah merek dagang atau nama layanan milik pemiliknya masing-masing, dan penyebutannya hanya untuk menjelaskan fungsi alat (misalnya, "QR ini membuka WhatsApp"), bukan untuk menyatakan hubungan resmi apa pun.</p>
+
+      <h2>Tidak ada jaminan QR terbaca sempurna di semua perangkat dan semua kondisi</h2>
+      <p>QR yang dihasilkan QRUsaha mengikuti standar pengkodean QR yang umum, dan dalam kondisi normal dapat dipindai oleh aplikasi kamera dan pemindai bawaan ponsel modern. Namun kami tidak memberikan jaminan bahwa setiap QR akan terbaca di setiap perangkat dan setiap situasi, karena keterbacaan QR di dunia nyata ditentukan oleh banyak faktor di luar program kami, antara lain:</p>
+      <ul>
+        <li>Kualitas cetak: hasil cetak buram, tinta menipis, ukuran terlalu kecil untuk isi yang padat, atau kertas mengilap yang memantulkan cahaya.</li>
+        <li>Kondisi stiker: QR yang robek, terlipat, memudar karena matahari dan hujan, atau ditempel pada permukaan melengkung.</li>
+        <li>Perangkat pemindai: kamera ponsel tua, lensa kotor, dan pencahayaan terlalu gelap atau terlalu silau.</li>
+        <li>Pilihan desain Anda sendiri: kontras warna terlalu rendah, atau logo tempel terlalu besar menutupi tengah QR.</li>
+      </ul>
+      <p>Karena itu, ujilah hasil cetak finalnya — bukan hanya gambar di layar — dengan lebih dari satu ponsel bila memungkinkan, terutama sebelum mencetak dalam jumlah banyak. Panduan praktis mengenai ukuran, warna, dan penempatan tersedia di <a href={u('/blog/')}>Blog &amp; Panduan</a> kami.</p>
+
+      <h2>Stiker ditimpa atau diganti pihak lain adalah risiko di luar kendali kami</h2>
+      <p>Ada risiko nyata bagi usaha yang memasang QR di tempat umum: stiker QR Anda dapat ditimpa atau diganti pihak tidak bertanggung jawab dengan QR milik mereka — misalnya QR pembayaran palsu yang mengarahkan uang pelanggan ke rekening penipu. Hal ini sepenuhnya di luar kendali situs ini: QRUsaha tidak memasang stiker Anda dan tidak mengawasi lokasi usaha Anda.</p>
+      <div class="kotak-info"><p>Anjuran kami: periksa stiker QR di tempat usaha Anda secara berkala — misalnya setiap pagi sebelum buka — dengan memindainya sendiri dan memastikan tujuannya masih benar. Gunakan bahan cetak yang sulit dilepas tanpa bekas, letakkan QR pembayaran sedekat mungkin dengan area yang terlihat oleh Anda atau staf, dan segera ganti stiker yang tampak pernah dilepas atau ditimpa.</p></div>
+
+      <h2>Unduhan disediakan apa adanya</h2>
+      <p>Seluruh alat, panduan, dan berkas unduhan di QRUsaha (PNG, SVG, dan lembar stiker) disediakan gratis dan apa adanya, tanpa jaminan tersurat maupun tersirat, termasuk jaminan kesesuaian untuk tujuan tertentu. Kami berusaha menjaga agar alat bekerja dengan benar dan panduan ditulis seakurat mungkin, tetapi kami tidak menjamin situs bebas kesalahan setiap saat, dan panduan dapat menjadi kurang sesuai bila layanan pihak lain (seperti format tautan WhatsApp atau halaman ulasan Google) berubah di kemudian hari.</p>
+      <p>Sepanjang diizinkan hukum yang berlaku, QRUsaha tidak bertanggung jawab atas kerugian dari penggunaan QR hasil situs ini — termasuk pembayaran salah tujuan akibat kesalahan isian atau stiker yang disalahgunakan pihak lain — karena isi, pemeriksaan, pencetakan, dan pemasangan QR berada dalam kendali Anda. Bila Anda menemukan kekeliruan pada alat atau panduan kami, mohon laporkan lewat halaman <a href={u('/kontak/')}>Kontak</a> agar dapat kami perbaiki.</p>
+    </div>
+  </div>
+</Layout>

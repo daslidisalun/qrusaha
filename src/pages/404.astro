@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Toko.astro';
+import { u } from '../lib/base.js';
+---
+
+<Layout title="Halaman Tidak Ditemukan — QRUsaha" description="Halaman yang Anda cari tidak ada. Kembali ke daftar generator QR gratis QRUsaha.">
+  <div class="bungkus">
+    <div class="pembuka artikel">
+      <span class="label-seksi">404</span>
+      <h1>Wah, halaman ini sedang tutup</h1>
+      <p>Alamat yang Anda buka tidak ada — mungkin salah ketik, atau halamannya sudah pindah. Jangan khawatir, tokonya tetap buka:</p>
+      <ul class="daftar-cek">
+        <li><a href={u('/')}>Beranda QRUsaha</a></li>
+        <li><a href={u('/generator/')}>Semua generator QR</a></li>
+        <li><a href={u('/stiker/')}>Lembar stiker siap cetak</a></li>
+        <li><a href={u('/blog/')}>Blog &amp; panduan</a></li>
+      </ul>
+    </div>
+  </div>
+</Layout>

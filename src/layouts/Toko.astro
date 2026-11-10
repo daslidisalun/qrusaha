@@ -1,0 +1,118 @@
+---
+import { u } from '../lib/base.js';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+}
+const { title, description } = Astro.props;
+// Canonical dibangun dari site + base pada astro.config.mjs (import.meta.env),
+// agar selalu mengikuti alamat terbit (produksi: qrusaha.click).
+const asal = (import.meta.env.SITE ?? '').replace(/\/$/, '');
+const dasar = import.meta.env.BASE_URL.replace(/\/$/, '');
+let jalur = Astro.url.pathname;
+if (jalur === dasar || jalur === dasar + '/') jalur = '/';
+else if (dasar && jalur.startsWith(dasar + '/')) jalur = jalur.slice(dasar.length);
+const canonical = asal + dasar + jalur;
+
+const nav = [
+  ['/generator/', 'Generator QR'],
+  ['/generator/whatsapp/', 'WhatsApp'],
+  ['/generator/wifi/', 'WiFi'],
+  ['/stiker/', 'Lembar Stiker'],
+  ['/blog/', 'Blog'],
+  ['/tentang/', 'Tentang'],
+];
+const kakiAlat = [
+  ['/generator/whatsapp/', 'QR WhatsApp'],
+  ['/generator/wifi/', 'QR WiFi'],
+  ['/generator/tautan/', 'QR Tautan / Link'],
+  ['/generator/ulasan-google/', 'QR Ulasan Google'],
+  ['/generator/info-bayar/', 'QR Info Pembayaran'],
+  ['/generator/kartu-nama/', 'QR Kartu Nama Digital'],
+  ['/generator/teks/', 'QR Teks Bebas'],
+  ['/stiker/', 'Lembar Stiker Siap Cetak'],
+];
+---
+
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23e4572e'/%3E%3Cg fill='%23fff7ea'%3E%3Crect x='18' y='18' width='26' height='26' rx='5'/%3E%3Crect x='56' y='18' width='26' height='26' rx='5'/%3E%3Crect x='18' y='56' width='26' height='26' rx='5'/%3E%3C/g%3E%3Cg fill='%2322303a'%3E%3Crect x='25' y='25' width='12' height='12'/%3E%3Crect x='63' y='25' width='12' height='12'/%3E%3Crect x='25' y='63' width='12' height='12'/%3E%3C/g%3E%3Crect x='58' y='58' width='11' height='11' fill='%23fff7ea'/%3E%3Crect x='73' y='73' width='11' height='11' fill='%23fff7ea'/%3E%3C/svg%3E" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Inter:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="kanopi" aria-hidden="true"></div>
+    <div class="papan">
+      <div class="bungkus">
+        <a class="wordmark" href={u('/')}><span class="qr-chip">QR</span>Usaha</a>
+        <p class="tagline-papan">QR Code Praktis untuk Usaha Kecil — warung, kafe, laundry, salon, bengkel, toko.</p>
+        <ul class="janji-papan">
+          <li>Gratis</li>
+          <li>Tanpa Daftar</li>
+          <li>Data Tidak Diunggah</li>
+          <li>Siap Cetak</li>
+        </ul>
+      </div>
+    </div>
+    <header class="site-header">
+      <div class="bungkus">
+        <a class="merek-mini" href={u('/')}>QRUsaha</a>
+        <button class="tombol-menu" id="tombol-menu" aria-expanded="false" aria-controls="nav-utama">☰ Menu</button>
+        <nav class="nav-tautan" id="nav-utama" aria-label="Navigasi utama">
+          {nav.map(([href, label]) => <a href={u(href)}>{label}</a>)}
+        </nav>
+      </div>
+    </header>
+<main>
+<slot />
+</main>
+    <footer>
+      <div class="bungkus">
+        <div class="kaki-grid">
+          <div>
+            <h3>QRUsaha</h3>
+            <p style="margin:0">Generator QR gratis untuk usaha kecil Indonesia. Semua QR dibuat langsung di browser Anda — tidak ada data yang diunggah, tidak ada pelacakan isi QR.</p>
+          </div>
+          <div>
+            <h3>Alat QR</h3>
+            <ul>
+              {kakiAlat.map(([href, label]) => <li><a href={u(href)}>{label}</a></li>)}
+            </ul>
+          </div>
+          <div>
+            <h3>Jelajahi</h3>
+            <ul>
+              <li><a href={u('/generator/')}>Semua Generator</a></li>
+              <li><a href={u('/blog/')}>Blog &amp; Panduan</a></li>
+              <li><a href={u('/tentang/')}>Tentang QRUsaha</a></li>
+              <li><a href={u('/kontak/')}>Kontak</a></li>
+              <li><a href={u('/privasi/')}>Kebijakan Privasi</a></li>
+              <li><a href={u('/disclaimer/')}>Disclaimer</a></li>
+            </ul>
+          </div>
+        </div>
+        <p class="strip-bawah">© 2026 QRUsaha · daslidisalun.github.io/qrusaha · Terima kasih sudah mampir — semoga laris manis! · Kontak: qrusaha@gmail.com</p>
+      </div>
+    </footer>
+    <script>
+      const tombol = document.getElementById('tombol-menu');
+      const nav = document.getElementById('nav-utama');
+      tombol?.addEventListener('click', () => {
+        const terbuka = nav.classList.toggle('terbuka');
+        tombol.setAttribute('aria-expanded', String(terbuka));
+      });
+    </script>
+  </body>
+</html>

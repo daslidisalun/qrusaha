@@ -1,0 +1,139 @@
+---
+import Layout from '../layouts/Toko.astro';
+import Editorial from '../konten/ed-stiker.astro';
+import { u } from '../lib/base.js';
+---
+
+<Layout
+  title="Lembar Stiker QR Siap Cetak (A4) — QRUsaha"
+  description="Susun QR apa pun menjadi lembar stiker A4 berisi 4, 6, atau 12 stiker dengan label nama usaha dan garis potong putus-putus. Tinggal cetak."
+>
+  <div class="bungkus">
+    <div class="pembuka">
+      <span class="label-seksi">Meja Cetak</span>
+      <h1>Lembar Stiker Siap Cetak</h1>
+      <p style="max-width:720px">Satu QR bagus, tetapi yang Anda tempel di meja, etalase, dan kemasan adalah stiker yang banyak. Halaman ini menyusun isi QR apa pun menjadi satu lembar A4 berisi beberapa stiker seragam — lengkap dengan label nama usaha dan garis potong putus-putus. Isi bisa Anda ketik langsung di sini, atau datang otomatis dari tombol "Buat Lembar Stiker" di setiap generator.</p>
+    </div>
+
+    <div class="panel-qr" data-panel-stiker>
+      <form class="kartu-form" autocomplete="off">
+        <div class="kolom">
+          <label for="stiker-isi">Isi QR (tautan atau teks)</label>
+          <textarea id="stiker-isi" data-bidang="isi" rows="4">https://wa.me/6281234567890?text=Halo%2C%20saya%20mau%20pesan%20antar.</textarea>
+          <p class="petunjuk">Tempel hasil dari generator (tautan WhatsApp, WiFi, menu, dan lain-lain) atau ketik isi apa pun. Semua stiker di lembar ini berisi QR yang sama.</p>
+        </div>
+        <div class="kolom">
+          <label for="stiker-label">Label di bawah QR</label>
+          <input type="text" id="stiker-label" data-bidang="label" value="Warung Kopi Mbok Sari" maxlength="60" />
+        </div>
+        <div class="baris-dua">
+          <div class="kolom">
+            <label for="stiker-jumlah">Jumlah stiker per lembar A4</label>
+            <select id="stiker-jumlah" data-bidang="jumlah">
+              <option value="4">4 stiker — besar (±9 cm)</option>
+              <option value="6" selected>6 stiker — sedang (±7 cm)</option>
+              <option value="12">12 stiker — kecil (±5 cm)</option>
+            </select>
+            <p class="petunjuk">Stiker kecil hanya cocok untuk jarak pindai dekat (di meja/kemasan) dan isi QR yang pendek.</p>
+          </div>
+          <div class="kolom">
+            <label for="stiker-level">Koreksi kesalahan</label>
+            <select id="stiker-level" data-bidang="level">
+              <option value="M">M — seimbang</option>
+              <option value="Q" selected>Q — lebih awet</option>
+              <option value="H">H — paling awet</option>
+            </select>
+          </div>
+        </div>
+        <button type="button" class="tombol" data-peran="cetak">🖨️ Cetak Lembar Ini</button>
+        <p class="kecil">Saat mencetak, pilih kertas A4 dan skala 100% ("ukuran sebenarnya") agar ukuran stiker tidak berubah. Hanya lembar stiker yang akan tercetak — formulir dan menu situs disembunyikan otomatis.</p>
+      </form>
+
+      <div>
+        <p class="label-seksi">Pratinjau A4</p>
+        <div class="lembar-a4" data-peran="lembar" aria-live="polite"></div>
+      </div>
+    </div>
+
+    <div class="artikel">
+      <Editorial />
+    </div>
+  </div>
+
+  <style>
+    .lembar-a4 {
+      background: #fff;
+      border: 2px solid var(--tinta);
+      border-radius: 6px;
+      box-shadow: 0 10px 24px rgba(34, 48, 58, .12);
+      padding: 18px;
+      display: grid;
+      gap: 14px;
+    }
+    .lembar-a4.j4 { grid-template-columns: repeat(2, 1fr); }
+    .lembar-a4.j6 { grid-template-columns: repeat(2, 1fr); }
+    .lembar-a4.j12 { grid-template-columns: repeat(3, 1fr); }
+    .sel-stiker {
+      border: 2px dashed #9db3bd;
+      border-radius: 14px;
+      padding: 12px 10px 9px;
+      text-align: center;
+      position: relative;
+    }
+    .sel-stiker .gunting { position: absolute; top: -11px; left: 10px; background: #fff; padding: 0 6px; font-size: .75rem; color: var(--tinta-lembut); }
+    .sel-stiker svg { width: 100%; height: auto; display: block; max-width: 170px; margin: 0 auto; }
+    .lembar-a4.j4 .sel-stiker svg { max-width: 210px; }
+    .lembar-a4.j12 .sel-stiker svg { max-width: 120px; }
+    .sel-stiker .label-bawah { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: .92rem; margin: 6px 0 0; overflow-wrap: anywhere; }
+    .lembar-a4.j12 .sel-stiker .label-bawah { font-size: .8rem; }
+    @media print {
+      body { background: #fff; }
+      body * { visibility: hidden; }
+      .lembar-a4, .lembar-a4 * { visibility: visible; }
+      .lembar-a4 {
+        position: absolute; inset: 0; border: 0; box-shadow: none; border-radius: 0;
+        width: 210mm; min-height: 290mm; padding: 10mm;
+        align-content: start;
+      }
+      @page { size: A4; margin: 0; }
+    }
+  </style>
+
+  <script>
+    import { qrKeSVG } from '../lib/qr.js';
+
+    const akar = document.querySelector('[data-panel-stiker]');
+    const ambil = (nama) => akar.querySelector(`[data-bidang="${nama}"]`);
+    const lembar = akar.querySelector('[data-peran="lembar"]');
+
+    // Isi awal bisa datang dari generator lain lewat ?isi= & ?label=
+    const param = new URLSearchParams(location.search);
+    if (param.get('isi')) ambil('isi').value = param.get('isi');
+    if (param.get('label')) ambil('label').value = param.get('label');
+
+    function segarkan() {
+      const isi = ambil('isi').value.trim();
+      const jumlah = parseInt(ambil('jumlah').value, 10);
+      const label = ambil('label').value;
+      lembar.className = 'lembar-a4 j' + jumlah;
+      if (!isi) {
+        lembar.innerHTML = '<p class="kecil" style="grid-column:1/-1;text-align:center;padding:20px">Isi QR dulu — pratinjau lembar muncul di sini.</p>';
+        return;
+      }
+      let svg = '';
+      try {
+        svg = qrKeSVG(isi, { level: ambil('level').value, gelap: '#22303a', terang: '#ffffff' });
+      } catch {
+        lembar.innerHTML = '<p class="kecil" style="grid-column:1/-1;text-align:center;padding:20px">Isi terlalu panjang untuk dijadikan QR. Pendekkan dulu, ya.</p>';
+        return;
+      }
+      const sel = `<div class="sel-stiker"><span class="gunting">✂</span>${svg}<p class="label-bawah"></p></div>`;
+      lembar.innerHTML = sel.repeat(jumlah);
+      lembar.querySelectorAll('.label-bawah').forEach((el) => (el.textContent = label));
+    }
+    akar.addEventListener('input', segarkan);
+    akar.addEventListener('change', segarkan);
+    akar.querySelector('[data-peran="cetak"]').addEventListener('click', () => window.print());
+    segarkan();
+  </script>
+</Layout>

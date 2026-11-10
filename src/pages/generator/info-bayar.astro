@@ -1,0 +1,84 @@
+---
+import Layout from '../../layouts/Toko.astro';
+import PanelQR from '../../components/PanelQR.astro';
+import Editorial from '../../konten/ed-infobayar.astro';
+---
+
+<Layout
+  title="Generator QR Info Pembayaran — QRUsaha"
+  description="Buat QR berisi teks info pembayaran (bank/e-wallet, nomor, atas nama) yang bisa disalin pelanggan. Jujur: ini bukan QRIS."
+>
+  <div class="bungkus">
+    <div class="pembuka">
+      <span class="label-seksi">Generator QR</span>
+      <h1>QR Info Pembayaran</h1>
+      <p style="max-width:720px">QR ini berisi <strong>teks</strong> info pembayaran usaha Anda. Pelanggan memindai, teksnya tampil di layar, lalu mereka menyalin nomornya ke aplikasi bank atau e-wallet mereka dan mentransfer secara manual seperti biasa.</p>
+      <div class="kotak-waspada"><p><strong>Jujur sejak awal: ini BUKAN QRIS.</strong> QR ini tidak terhubung ke rekening Anda dan tidak bisa menerima pembayaran otomatis. QRIS hanya diterbitkan bank dan e-wallet resmi. QR teks ini berguna sebagai pendamping — misalnya untuk pelanggan yang lebih suka transfer manual, atau selagi QRIS resmi Anda belum jadi. Jangan pernah menyebutnya "QRIS" kepada pelanggan.</p></div>
+    </div>
+
+    <div class="panel-qr" data-panel>
+      <form class="kartu-form" autocomplete="off">
+        <div class="kolom">
+          <label for="bayar-usaha">Nama usaha (opsional)</label>
+          <input type="text" id="bayar-usaha" data-bidang="usaha" placeholder="cth: Warung Kopi Mbok Sari" value="Warung Kopi Mbok Sari" />
+        </div>
+        <div class="baris-dua">
+          <div class="kolom">
+            <label for="bayar-jenis">Bank / e-wallet</label>
+            <select id="bayar-jenis" data-bidang="jenis">
+              <option>BCA</option>
+              <option>BRI</option>
+              <option>Mandiri</option>
+              <option>BNI</option>
+              <option>DANA</option>
+              <option>OVO</option>
+              <option>GoPay</option>
+              <option>ShopeePay</option>
+              <option>Bank Jago</option>
+              <option>SeaBank</option>
+            </select>
+          </div>
+          <div class="kolom">
+            <label for="bayar-nomor">Nomor rekening / nomor HP e-wallet</label>
+            <input type="text" id="bayar-nomor" data-bidang="nomor" placeholder="cth: 8460 1234 56" value="8460 1234 56" />
+          </div>
+        </div>
+        <div class="kolom">
+          <label for="bayar-nama">Atas nama</label>
+          <input type="text" id="bayar-nama" data-bidang="nama" placeholder="cth: Sari Wulandari" value="Sari Wulandari" />
+          <p class="petunjuk">Tulis persis seperti nama pemilik rekening — pelanggan mencocokkan nama ini sebelum menekan tombol kirim di aplikasi mereka.</p>
+        </div>
+        <div class="kolom">
+          <label for="bayar-catatan">Catatan (opsional)</label>
+          <input type="text" id="bayar-catatan" data-bidang="catatan" placeholder="cth: Tunjukkan bukti transfer ke kasir ya" />
+        </div>
+      </form>
+      <PanelQR labelAwal="Info Pembayaran Kami" />
+    </div>
+
+    <div class="artikel">
+      <Editorial />
+    </div>
+  </div>
+
+  <script>
+    import { pasangPanel } from '../../lib/qr-ui.js';
+    import { muatanInfoBayar } from '../../lib/qr.js';
+
+    const panel = document.querySelector('[data-panel]');
+    const ambil = (nama) => panel.querySelector(`[data-bidang="${nama}"]`);
+    pasangPanel(panel, {
+      buatMuatan: () =>
+        ambil('nomor').value.trim() && ambil('nama').value.trim()
+          ? muatanInfoBayar({
+              jenis: ambil('jenis').value,
+              nomor: ambil('nomor').value,
+              atasNama: ambil('nama').value,
+              usaha: ambil('usaha').value,
+              catatan: ambil('catatan').value,
+            })
+          : '',
+      namaBerkas: 'qr-info-bayar',
+    });
+  </script>
+</Layout>
